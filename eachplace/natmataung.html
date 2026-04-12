@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Nat Ma Taung</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   A UNESCO-listed ASEAN Heritage Park and the highest peak in Chin State (3,053m). It features Rhododendron forests, rare bird species, and "Cloud Sea" views.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/nat1.jpg">
+            <img id="simg" src="../image & logo/nat2.jpg">
+            <img id="simg" src="../image & logo/nat3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/chin.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/chin.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  A UNESCO-listed ASEAN Heritage Park and the highest peak in Chin State (3,053m). It features Rhododendron forests, rare bird species, and Cloud Sea views"
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   It is a haven for biodiversity and a recognized heritage park."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥    January and February (when Rhododendron flowers are blooming)."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   Located in Southern Chin State (Specific transport routes not mentioned)."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

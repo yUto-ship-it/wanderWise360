@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Mingun Bell</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   It is one of the world's largest ringing bells. Visitors love the fact that you can actually stand inside the bell while someone strikes it from the outside to feel the deep vibrations.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/b1.jpg">
+            <img id="simg" src="../image & logo/b2.jpg">
+            <img id="simg" src="../image & logo/b3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/sagaing.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/sagaing.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  It is one of the world's largest ringing bells. Visitors love the fact that you can actually stand inside the bell while someone strikes it from the outside to feel the deep vibrations."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥    Cast in 1808 by King Bodawpaya.Weight- Approximately 90 tons (55,555 viss).It was intended to accompany the massive (but unfinished) Pahtodawgyi Pagoda"
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥   Early morning (around 8:00 AM) to avoid the heat and the crowds of day-trippers coming from Mandalay."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   By Boat: The most scenic route is a 1-hour ferry ride from Mandalay’s Mayan Chan Jetty."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

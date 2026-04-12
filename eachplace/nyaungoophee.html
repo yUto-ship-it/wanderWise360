@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Nyaung Oo Phee Island</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   Known as the "Maldives of Myanmar," this island offers an pristine, unspoiled natural environment with crystal-clear waters, vibrant coral reefs, and sandy beaches. It is a premier spot for snorkeling, scuba diving, hiking, and camping.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/nyaung1.jpg">
+            <img id="simg" src="../image & logo/nyaung2.jpg">
+            <img id="simg" src="../image & logo/nyaung3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/tanintheryi.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/tanintharyi.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+      
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥ Known as the Maldives of Myanmar, this island offers an pristine, unspoiled natural environment with crystal-clear waters, vibrant coral reefs, and sandy beaches. It is a premier spot for snorkeling, scuba diving, hiking, and camping."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   The island is primarily recognized for its natural ecological state and has been developed recently as an eco-tourism destination rather than a site of significant historical human settlement "
+            },
+            {
+                "tropic":"<h3>Best Time To Go</h3>",
+                "list": "⩥    The optimal time to visit is during the dry season, from November to May, when the sea is calm, the skies are clear, and weather conditions are most comfortable for water activities."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   You can take a 30-minute to 1.5-hour speedboat ride from Kawthaung to reach the island. Booking a professional travel package is highly recommended as independent transport options are limited."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

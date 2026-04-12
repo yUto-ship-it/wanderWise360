@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Ngwe Taung Dam</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   The stunning panoramic view of the vast, crystal-clear reservoir framed by majestic mountain ranges is its main draw.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/ngwetaung1.jpg">
+            <img id="simg" src="../image & logo/ngwetaung2.jpg">
+            <img id="simg" src="../image & logo/ngwetaung3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/kayar.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/kayar.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  The stunning panoramic view of the vast, crystal-clear reservoir framed by majestic mountain ranges is its main draw."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   Built in 1962 for agricultural irrigation, the area is famously tied to the mythical legend of Dwe Mei Naw and the Kinnari sisters.Would you like me to provide similar facts for."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥   The ideal time to visit is from October to February when the weather is cool and the surrounding landscape is lush and green."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   It is located in Demoso, about 10 miles from Loikaw, and can be easily reached by car or motorbike in about 45 minutes"
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Mawlamyine(The colonial port city)</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   The city is famously immortalized in Western literature, serving as the setting for George Orwell’s Shooting an Elephant and Rudyard Kipling’s poem "Mandalay.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/maw1.jpg">
+            <img id="simg" src="../image & logo/maw2.jpg">
+            <img id="simg" src="../image & logo/maw3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/mon.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/mon.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  The city is famously immortalized in Western literature, serving as the setting for George Orwell’s Shooting an Elephant and Rudyard Kipling’s poem Mandalay."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥    Mawlamyine, formerly known as Moulmein, served as the first capital of British Burma from 1826 to 1852 after the First Anglo-Burmese War. It was a major center for the teak trade and shipbuilding, which attracted a diverse population of Indian, Chinese, and European settlers."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥   November to early March. The weather is dry and pleasant, making it perfect for walking tours along the Strand Road and catching the sunset from the ridge pagodas."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   To Mawlamyine: * Bus: Daily Express buses from Yangon (Aung Mingalar) take about 6–7 hours.<br>⩥    Train: A scenic but bumpy ride from Yangon takes about 9–10 hours.<br>⩥    Flight: Domestic flights connect Yangon to Mawlamyine Airport (schedule varies).Getting Around: The city is best explored via Tuk-tuks, Motorbike Taxis, or by hiring a bicycle for the day to ride along the riverside."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

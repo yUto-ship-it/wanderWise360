@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Mahamuni Buddha Temple</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥  This is one of the most sacred Buddhist sites in Myanmar, second only to the Shwedagon Pagoda in Yangon. The 3.8-meter-tall bronze Buddha image is highly revered and believed by many to have been cast during the lifetime of the Buddha himself.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/maham1.jpg">
+            <img id="simg" src="../image & logo/maham2.jpg">
+            <img id="simg" src="../image & logo/maham3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/mandalay.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/mandalay.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  This is one of the most sacred Buddhist sites in Myanmar, second only to the Shwedagon Pagoda in Yangon. The 3.8-meter-tall bronze Buddha image is highly revered and believed by many to have been cast during the lifetime of the Buddha himself."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥  Over centuries, male devotees have applied so much gold leaf to the image as an act of merit that it now has a thick, irregular layer of pure gold (about 15 cm thick) covering everything except for its brightly polished face."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥   If you are an early riser, go at 4:00 AM to witness the daily Face-Washing Ritual"
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥    You can reach it easily by taxi, motorbike taxi, or by taking a local pick-up bus from the Zay Cho Market area"
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

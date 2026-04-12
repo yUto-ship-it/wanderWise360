@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myanmar Travel Highlights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #d4a373;
+            --bg-light: #fefae0;
+            --white: #ffffff;
+            --accent: #bc6c25;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(90deg, rgb(212, 134, 61), rgba(225, 188, 87, 0.59));
+            color: #333;
+            overflow-x: hidden;
+            padding: 0;
+            margin: 0;
+            overscroll-behavior: none;
+            width: 100%;
+        }
+
+        html {
+            overscroll-behavior: none;
+        }
+
+        nav {
+            background: rgb(233, 116, 48);
+            color: white;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        /* Desktop Menu */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a,
+        select {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        #ras {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.3s;
+            border: none;
+            background: rgb(233, 116, 48);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Icon (Hidden on Desktop) */
+        .menu-icon {
+            font-size: 2rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        header {
+            background: url("image & logo/homebg.png");
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-items: center;
+            color: linear gradient(45deg, gold, brown);
+            padding: 50px;
+
+
+        }
+
+        header h3 {
+            color: white;
+            margin: 0 0 3px 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 2rem;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin: 30px auto;
+
+        }
+
+        header p {
+            color: white;
+            margin: 0 0 3px 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0 auto;
+
+        }
+
+        header h1 {
+            color: white;
+            margin: 0 0 3px 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 4rem;
+            background: linear-gradient(30deg, rgb(171, 21, 174), rgb(38, 189, 205));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin: 0 auto;
+
+
+        }
+
+        input {
+            padding: 10px;
+            width: 120%;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            height: 30px;
+            outline: none;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 0 0 10px 50px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Horizontal Scroll - No Overlap */
+        .scroll-wrapper {
+            display: flex;
+            overflow-x: auto;
+            /* Card ကြီးလာဖို့အတွက် အပေါ်အောက် padding ခွာထားရန် အရေးကြီးသည် */
+            padding: 80px 50px;
+            gap: 60px;
+            /* Card တစ်ခုနှင့်တစ်ခုကြား အကွာအဝေး */
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            cursor: grab;
+            /* အလယ်မှာ အမြဲရပ်တန့်စေချင်လျှင် scroll-snap သုံးနိုင်သည် */
+            scroll-snap-type: x proximity;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+            /* Card ရဲ့ ပုံသေအကျယ် */
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+            scroll-snap-align: center;
+            user-select: none;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background: #283618;
+            color: #fefae0;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: url('image & logo/logo.png');
+            background-size: cover;
+            margin: 20px 0 0 0;
+
+
+        }
+
+        section {
+            min-height: 100vh;
+            width: 90%;
+            margin: 0 auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        section h1 {
+            font-size: 3rem;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            /* Card ၃ ခုစာ ဆံ့အောင် နည်းနည်း တိုးလိုက်ပါ */
+            margin: 0 auto;
+            overflow-x: auto;
+            gap: 20px;
+            /* Padding ကို 35% ကနေ 5% လောက်ပဲ ထားပါ (သို့မဟုတ် အနည်းငယ်ပဲ ထားပါ) */
+            padding: 60px 3%;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            /* စစချင်းမှာ card တွေကို အစဉ်လိုက် ပြဖို့ */
+        }
+
+        /* 2. The Card */
+        .project-card {
+            background: lightblue;
+            border-radius: 3px;
+            padding: 10px;
+            border: 2px solid white;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            /* ပိုချောမွေ့သွားအောင် */
+            flex: 0 0 320px;
+            scroll-snap-align: center;
+            opacity: 1;
+            transform: scale(0.85);
+        }
+
+        /* 3. အလယ်ရောက်တဲ့ Card ပဲ ကြီးလာမယ် */
+
+        .project-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            background: rgb(35, 197, 197);
+            width: 80%;
+            margin: 10px auto;
+            border-radius: 5px;
+
+        }
+
+        .project-card h3:hover {
+            background: rgb(97, 231, 97);
+            box-shadow: 0 0 15px rgb(97, 231, 97);
+        }
+
+        /* 4. The Image (Masking Effect) */
+        .project-img {
+            width: 90%;
+            height: 350px;
+            background: #1e293b;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            /* This stops the image from spilling out */
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s ease;
+
+        }
+
+        /* 5. Image Hover (Internal only) */
+        .project-card:hover .project-img img {
+            transform: translateY(-10px) scale(1.2);
+            /* Moves up but stays inside the box */
+        }
+
+        .tag {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary-blue);
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            margin-right: 5px;
+        }
+
+        /* --- Background Glow --- */
+        .bg-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        img:hover {
+            transform: translateY(-3px) scale(1.2);
+        }
+
+        #button {
+            margin: 50px auto;
+            display: flex;
+        }
+
+        button {
+            padding: 15px 40px;
+            border-radius: 10px;
+            background: blue;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            box-shadow: 0 0 15px skyblue;
+            background: skyblue;
+            transform: translateY(-4px);
+
+        }
+
+        #name {
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            h2 {
+                margin-left: 20px;
+            }
+
+            .scroll-wrapper {
+                gap: 40px;
+                padding: 60px 30px;
+            }
+
+            .card {
+                min-width: 260px;
+            }
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .menu-icon {
+                display: block;
+                color: blue;
+            }
+
+            /* Show hamburger on mobile */
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                /* Hide side menu */
+                width: 70%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links a {
+                color: blue;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            #logo {
+                width: 80px;
+                height: 80px;
+                overflow: hidden;
+                border-radius: 50%;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            section h1 {
+                font-size: 1.5rem;
+            }
+
+
+            /* Slide in */
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div id="logo">
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <input type="text" placeholder="Where do you want to go?" id="search" onkeydown="if(event.key==='Enter') {findpage();event.preventDefault();}">
+            <li><a href="home.html" onclick="closeMenu()">Home</a></li>
+            <li><select id="ras" onchange="switchPage('ras')">
+                    <option selected>Place to go</option>
+                    <option value="../eachaboutpage/kachin.html">Kachin</option>
+                    <option value="../eachaboutpage/kayar.html">Kayar</option>
+                    <option value="../eachaboutpage/Kayin.html">Kayin</option>
+                    <option value="../eachaboutpage/chin.html">Chin</option>
+                    <option value="../eachaboutpage/mon.html">Mon</option>
+                    <option value="../eachaboutpage/rakhine.html">Rakhine</option>
+                    <option value="../eachaboutpage/shan.html">Shan</option>
+                    <option value="../eachaboutpage/yangon.html">Yangon</option>
+                    <option value="../eachaboutpage/mandalay.html">Mandalay</option>
+                    <option value="../eachaboutpage/bago.html">Bago</option>
+                    <option value="../eachaboutpage/magway.html">Magway</option>
+                    <option value="../eachaboutpage/ayeyarwaddy.html">Ayeyarwaddy</option>
+                    <option value="../eachaboutpage/tanintharyi.html">Tanintheryi</option>
+                    <option value="../eachaboutpage/sagaing.html">Sagaing</option>
+                </select></li>
+            <li><a href="service.html" onclick="closeMenu()">Services</a></li>
+            <li> <a href="packages.html" onclick="closeMenu()">Packages</a></li>
+            <li> <a href="booking.html" onclick="closeMenu()">Booking</a></li>
+            <li> <a href="aboutus.html" onclick="closeMenu()">About</a></li>
+        </ul>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="bi bi-list" id="menuBtn"></i>
+        </div>
+    </nav>
+    <header>
+        <h1>EXPLORE THE WONDERS OF MYANMAR</h1>
+        <h3>Find your next adventurewith WanderWise 360</h3>
+        <div id="button">
+            <button>Explore Now</button>
+        </div>
+    </header>
+    <section id="portfolio">
+        <h1>Popular Destination</h1>
+        <p style="color: var(--text-gray);">A collection of populas</p>
+
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <a href="eachplace/kalaw.html">
+                    <div class="project-img"><img src="image & logo/kalaw3.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/kalaw.html" id="name">
+                    <h3>Kalaw</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/chaungtha.html">
+                    <div class="project-img"><img src="image & logo/chaung.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/chaungtha.html" id="name">
+                    <h3 style="font-size: 1.3rem;padding:2px;">Chaung Tha Beach</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/moeyungyi.html">
+                    <div class="project-img"><img src="image & logo/moeyung3.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/moeyungyi.html" id="name">
+                    <h3 style="font-size: 1.3rem;padding:2px;">Moeyung Sanctuary</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/manaungisland.html">
+                    <div class="project-img"><img src="image & logo/man3.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/moeyungyi.html" id="name">
+                    <h3 style="font-size: 1.3rem;padding:2px;">Moeyung Sanctuary</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/kanbawzathadipalace.html">
+                    <div class="project-img"><img src="image & logo/kanbaw.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/moeyungyi.html" id="name">
+                    <h3>Moeyung Sanctuary</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <h1>REGIONS & STATES</h1>
+        <p style="color: var(--text-gray);">A collection of my recent projects</p>
+
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <a href="eachaboutpage/yangon.html">
+                    <div class="project-img"><img src="image & logo/yangons.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/yangon.html" id="name">
+                    <h3>YANGON</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/mandalay.html">
+                    <div class="project-img"><img src="image & logo/mandalaya.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/mandalay.html" id="name">
+                    <h3>MANDALAY</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/ayeyarwaddy.html">
+                    <div class="project-img"><img src="image & logo/ayeyarwaddy.jpg" />
+                    </div>
+                </a>
+                <a href="eachaboutpage/ayeyarwaddy.html" id="name">
+                    <h3>AYEYARWADDY</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/bago.html">
+                    <div class="project-img"><img src="image & logo/bagos.jpg" />
+                    </div>
+                </a>
+                <a href="eachaboutpage/bago.html" id="name">
+                    <h3>BAGO</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/tanintharyi.html">
+                    <div class="project-img"><img src="image & logo/hotel.jpg" />
+                    </div>
+                </a>
+                <a href="eachaboutpage/tanintharyi.html" id="name">
+                    <h3>TANINTHARYI</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/sagaing.html">
+                    <div class="project-img"><img src="image & logo/sagaing.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/sagaing.html" id="name">
+                    <h3>SAGAING</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/magway.html">
+                    <div class="project-img"><img src="image & logo/magway.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/magway.html" id="name">
+                    <h3>MAGWAY</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/kachin.html">
+                    <div class="project-img"><img src="image & logo/kachin.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/kachin.html" id="name">
+                    <h3>KACHIN</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/kayar.html">
+                    <div class="project-img"><img src="image & logo/kayars.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/kayar.html" id="name">
+                    <h3>kAYAR</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/kayin.html">
+                    <div class="project-img"><img src="image & logo/kayins.jpg" />
+                    </div>
+                </a>
+                <a href="eachaboutpage/kayin.html" id="name">
+                    <h3>KAYIN</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/chin.html">
+                    <div class="project-img"><img src="image & logo/chin.jpg" />
+                    </div>
+                </a>
+                <a href="eachaboutpage/chin.html" id="name">
+                    <h3>CHIN</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/mon.html">
+                    <div class="project-img"><img src="image & logo/mon.jpg" />
+                    </div>
+                </a>
+                <a href="eachaboutpage/mon.html" id="name">
+                    <h3>MON</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/rakhine.html">
+                    <div class="project-img"><img src="image & logo/myauk.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/rakhine.html" id="name">
+                    <h3>RAKHINE</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachaboutpage/shan.html">
+                    <div class="project-img"><img src="image & logo/shans.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachaboutpage/shan.html" id="name">
+                    <h3>SHAN</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <h1>PAGODAS</h1>
+        <p style="color: var(--text-gray);">A collection of my recent projects</p>
+
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <a href="eachplace/shwedagon.html">
+                    <div class="project-img"><img src="image & logo/shwedagon1.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/shwedagon.html" id="name">
+                    <h3>SHWEDAGON</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/bagan.html">
+                    <div class="project-img"><img src="image & logo/bagan.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/bagan.html" id="name">
+                    <h3>BAGAN</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/mahayatmotni.html">
+                    <div class="project-img"><img src="image & logo/maha1.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/mahayatmotni.html" id="name">
+                    <h3>MAHA MYATMOT NI</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/kyaikhtiyo.html">
+                    <div class="project-img"><img src="image & logo/kyai1.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/kyaikhtiyo.html" id="name">
+                    <h3>KYAIK HTI </h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <h1>HILLS</h1>
+        <p style="color: var(--text-gray);">A collection of my recent projects</p>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <a href="eachplace/natmataung.html">
+                    <div class="project-img"><img src="image & logo/nat.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/natmataung.html" id="name">
+                    <h3 style="font-size: 0.9rem;padding:5px;">NATMATAUNG NATIONAL PARK</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/zwekabin.html">
+                    <div class="project-img"><img src="image & logo/zewkabin.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/zwekabin.html" id="name">
+                    <h3>ZWEKABIN</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/mandalayhill.html">
+                    <div class="project-img"><img src="image & logo/pago1.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/mandalayhill.html" id="name">
+                    <h3>MANDALAY HILL</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/sagainghill.html">
+                    <div class="project-img"><img src="image & logo/min1.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/sagainghill.html" id="name">
+                    <h3>SAGAING HILL</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/hkakaborazi.html">
+                    <div class="project-img"><img src="image & logo/hka.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/hkakaborazi.html" id="name">
+                    <h3 style="font-size: 1.3rem;padding:2px;">HKAKABORAZI PEAK</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/sagainghill.html">
+                    <div class="project-img"><img src="image & logo/min1.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/sagainghill.html" id="name">
+                    <h3>SAGAING HILL</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/sagainghill.html">
+                    <div class="project-img"><img src="image & logo/min1.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/sagainghill.html" id="name">
+                    <h3>SAGAING HILL</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <h1>BEACHES</h1>
+        <p style="color: var(--text-gray);">A collection of my recent projects</p>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <a href="eachplace/setse.html">
+                    <div class="project-img"><img src="image & logo/set.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/setse.html" id="name">
+                    <h3>SETSE BEACH</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/ngwesaung.html">
+                    <div class="project-img"><img src="image & logo/ngwe.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/ngwesaung.html" id="name">
+                    <h3 style="font-size: 1.3rem;padding:2px;">NGWESAUNG BEACH</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/ngapali.html">
+                    <div class="project-img"><img src="image & logo/ngapali.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/ngapali.html" id="name">
+                    <h3>NGAPALI BEACH</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/chaungtha.html">
+                    <div class="project-img"><img src="image & logo/chaung.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/chaungtha.html" id="name">
+                    <h3 style="font-size: 1.3rem;padding:2px;">CHAUNGTHA BEACH</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/maungmaganbeach.html">
+                    <div class="project-img"><img src="image & logo/maung.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/maungmaganbeach.html" id="name">
+                    <h3 style="font-size: 1.2rem;padding:2px;">MAUNGMAGAN BEACH</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/ngapali.html">
+                    <div class="project-img"><img src="image & logo/ngapali.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/ngapali.html" id="name">
+                    <h3>NGAPALI BEACH</h3>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="eachplace/ngapali.html">
+                    <div class="project-img"><img src="image & logo/ngapali.jpg" />
+                    </div>
+                </a>
+
+                <a href="eachplace/ngapali.html" id="name">
+                    <h3>NGAPALI BEACH</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Myanmar Travel Highlights</p>
+    </footer>
+
+    <script>
+        function findpage() {
+            const file = document.getElementById("search").value.trim();
+            const place = file.toLowerCase().replace(/\s+/g, '');
+            if (place != "") {
+                const eachaboutpage = ["yangon", "mandalay", "sagaing", "bago", "mon", "shan", "chin", "kayin", "kayar", "kachin", "ayeyarwaddy", "magway", "rakhine", "tanintharyi"];
+                const eachplace = ["shwedagon", "sule", "bagan", "kandawgyi", "chaungtha", "hteepwintkanwaterfall", "inlay", "kalaw", "kayinzwe", "kyaiktiyo", "kyaukkalat", "mahayatmotni", "manaungisland", "mandalayhill", "mandalaypalace", "mawlamyine", "meinmahla", "mingun", "mrauku", "nagpali", "ngwesaung", "ngwetaungdam", "pindaya", "sadancave", "sagainghill", "setse", "soonooponenyashine", "tantkyitaung", "taungdwingyi", "taungkwepagoda", "yokesone", "rihlake", "kennedypeak", "natmataung", "kanbawzathadipalace", "moeyungyi", "shwemawdawpagoda", "myitkyina", "hkakaborazi", "indawgyi", "myeik", "nyaungoophee", "maungmaganbeach"];
+                if (eachaboutpage.includes(place)) {
+                    window.location.href = "eachaboutpage/" + place + ".html";
+                }
+                else if (eachplace.includes(place)) {
+                    window.location.href = "eachplace/" + place + ".html";
+                } else {
+                    alert("စိတ်မရှိပါနဲ့ ခင်ဗျာ '" + place + "' ကို ရှာဖွေတွေရှိခြင်း မရှိပါခင်ဗျာ။ အခြားသောနေရာအားရှာဖွေနိုင်ပါသည်။");
+                }
+            }
+        }
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            navLinks.classList.toggle('active');
+
+            if (navLinks.classList.contains('active')) {
+                menuBtn.classList.replace('bi-list', 'bi-x-lg');
+            } else {
+                menuBtn.classList.replace('bi-x-lg', 'bi-list');
+            }
+        }
+
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('menuBtn').classList.replace('bi-x-lg', 'bi-list');
+        }
+
+
+
+    </script>
+    <script src="javascript/tab.js"></script>
+</body>
+
+</html>

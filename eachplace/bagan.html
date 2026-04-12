@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Bagan</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   Bagan is a UNESCO World Heritage site home to over 2,000 ancient Buddhist temples and pagodas.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/bgan1.jpg">
+            <img id="simg" src="../image & logo/bgan2.jpg">
+            <img id="simg" src="../image & logo/bgan3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/mandalay.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/mandalay.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  Bagan is a UNESCO World Heritage site home to over 2,000 ancient Buddhist temples and pagodas."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥  The best time to go is from November to February when the weather is cool and pleasant."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥   It was the capital of the first Burmese Empire, reaching its golden age between the 11th and 13th centuries."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   You can explore the temple plains easily using E-bikes, bicycles, or traditional horse carts."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

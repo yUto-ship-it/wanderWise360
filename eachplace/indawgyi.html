@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Indawgyi(Shwe MyintZu pagoda)</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   Local legend tells of an ancient kingdom that was flooded as a divine trial, leaving only the righteous to survive. 
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/indaw1.jpg">
+            <img id="simg" src="../image & logo/indaw2.jpg">
+            <img id="simg" src="../image & logo/indaw3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/kachin.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/kachin.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥ Local legend tells of an ancient kingdom that was flooded as a divine trial, leaving only the righteous to survive. "
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   Indawgyi is Myanmar’s largest freshwater lake and a UNESCO Biosphere Reserve, home to hundreds of species of birds and fish. The lake is spiritually centered around the Shwe Myitzu Pagoda, a floating structure built in the late 19th century that appears to drift on the water's surface."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥    December to March. In March, the water level drops, allowing pilgrims to walk across a sand path to the pagoda."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   Travel from Myitkyina by car (4–5 hours) or take a train to Hopin, followed by a 1-hour local taxi ride to the lake.l"
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

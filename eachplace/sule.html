@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Sule Pagoda</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   Surronded by colonial buildings<br>⩥   Important historical landmark<br>⩥   Best for photogenic
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/sule2.jpg">
+            <img id="simg" src="../image & logo/sule3.jpg">
+            <img id="simg" src="../image & logo/sule4.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/yangon.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/yangon.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥   Surronded by colonial buildings<br>⩥   Important historical landmark<br>⩥   Best for photogenic"
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   Sule pagoda is believed to be over 2000 years old, according to legend.It is located in the center of downtown Yangon and has been an important religious landmarks for century.During the British colonial period,the city was planned arround the pagoda,marking it the heart of Yangon."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥   Morning or evening <br>⩥    Holidays"
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥  Easily accessible by Taxi and Grab  <br>⩥   Many YBS bues stop nearby<br>⩥  Walking distance from downtown hotels"
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

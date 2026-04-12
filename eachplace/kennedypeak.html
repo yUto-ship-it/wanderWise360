@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+
+    <div id="glassbox">
+        <div id="text">
+            <h1>Kennedy Peak</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥ The second-highest mountain in Chin State (2,703m). Offers a 360-degree view of the Chin Hills and
+                    the Indian border. It is a relatively easy trek.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/peak1.jpg">
+            <img id="simg" src="../image & logo/peak2.jpg">
+            <img id="simg" src="../image & logo/peak3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/chin.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/chin.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  The second-highest mountain in Chin State (2,703m). Offers a 360-degree view of the Chin Hills and the Indian border. It is a relatively easy trek."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   It gained historical fame as a strategic battleground during World War II between British and Japanese forces."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥  during the cool dry season from November to February, when clear skies offer panoramic views reaching as far as India and trekking conditions are most comfortable"
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   Accessible via the Tedim-Kalay Road."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

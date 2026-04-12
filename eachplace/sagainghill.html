@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Sagaing Hill</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   Known as the "Religious Hub" of Myanmar, it offers breathtaking panoramic views of the Ayeyarwady River and hundreds of white and gold stupas dotting the green hillside. It is a center for Buddhist meditation and education.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/min1.jpg">
+            <img id="simg" src="../image & logo/min2.jpg">
+            <img id="simg" src="../image & logo/min3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/sagaing.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/sagaing.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  Known as the Religious Hub of Myanmar, it offers breathtaking panoramic views of the Ayeyarwady River and hundreds of white and gold stupas dotting the green hillside. It is a center for Buddhist meditation and education."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥  Became a major religious center after the fall of Pagan (Bagan)."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥    Late afternoon for a spectacular sunset view over the river."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   By Car/Motorbike: Accessible via the Inwa Bridge or Irrawaddy Bridge from Mandalay (about 30-45 mins).On Foot: For the adventurous, you can climb the covered stairways for a more traditional experience."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

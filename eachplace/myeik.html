@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Myeik(Mergui)</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   As the gateway to the 800+ islands of the Mergui Archipelago, Myeik is famous for its rich maritime culture, colonial-era architecture, traditional boat-building yards, and local seafood markets. 
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/myeik1.jpg">
+            <img id="simg" src="../image & logo/nge3.jpg">
+            <img id="simg" src="../image & logo/myeik3.png">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/tanintheryi.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/tanintharyi.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  As the gateway to the 800+ islands of the Mergui Archipelago, Myeik is famous for its rich maritime culture, colonial-era architecture, traditional boat-building yards, and local seafood markets. "
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   Myeik has a history spanning over 500 years as a significant port and maritime trading hub. It has been under the influence of various powers throughout history, including the Pagan Kingdom, the Kingdom of Siam, the British, and the Japanese, all of which left their mark on the city's architecture and culture."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥  Similar to other coastal areas in the region, the best time to visit is from November to May to enjoy calm seas and pleasant weather."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   Myeik is accessible via flights from Yangon, Dawei, or Kawthaung, and is also connected by road and sea routes."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>

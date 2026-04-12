@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/taunggyi.css">
+</head>
+
+<body>
+   
+    <div id="glassbox">
+        <div id="text">
+            <h1>Kyaiktiyo Pagoda</h1><br><br>
+            <div id="left">
+                <nav>
+                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
+                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
+                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
+                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+                </nav>
+                <div id="about">
+                    <h3>Attraction</h3><br>
+                    ⩥   The Kyaiktiyo Pagoda is one of Myanmar's most sacred Buddhist sites, famous for a massive granite boulder gilded in gold leaf that balances precariously on a cliff edge.
+                </div>
+            </div>
+
+        </div>
+        <div id="img">
+
+            <img id="simg" src="../image & logo/kyai1.jpg">
+            <img id="simg" src="../image & logo/kyai2.jpg">
+            <img id="simg" src="../image & logo/kyai3.jpg">
+
+        </div>
+    </div>
+    <div class="book">
+        <a id="book" href="../eachservicepage/mon.html">For more service</a>
+    </div>
+    <a id="book" href="../eachaboutpage/mon.html" style="position: absolute;top:20px;left:20px;">Back</a>
+    <script>
+        const data = [
+            {
+                "tropic": "<h3>Attraction</h3>",
+                "list": "⩥  The Kyaiktiyo Pagoda is one of Myanmar's most sacred Buddhist sites, famous for a massive granite boulder gilded in gold leaf that balances precariously on a cliff edge."
+            },
+            {
+                "tropic": "<h3>History</h3>",
+                "list": "⩥   According to legend, the rock is held in place by a single strand of the Buddha’s hair, gifted to a hermit who then passed it to a king. The king used his supernatural powers to find a rock resembling the hermit's head to enshrine the relic. It has remained a symbol of faith and gravity-defying wonder for over 2,500 years."
+            },
+            {
+                "tropic": "<h3>Best Time To Go</h3>",
+                "list": "⩥   November to March. The weather is cool, and the Nine Thousand Lamps festival in December is a major spiritual highlight."
+            },
+            {
+                "tropic": "<h3>Transportation</h3>",
+                "list": "⩥   Take an Express Bus from Yangon to Kinpun Base Camp (4 hours). From Kinpun, you must take a specially converted open truck to reach the summit."
+            },
+        ]
+        function showTopic(index) {
+            const p = document.getElementById('about');
+            const item = data[index];
+            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+        }
+    </script>
+</body>
+
+</html>
