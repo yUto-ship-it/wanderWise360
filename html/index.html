@@ -993,6 +993,7 @@
 
     <script>
         function findpage() {
+            event.preventDefault();
             const file = document.getElementById("search").value.trim();
             const place = file.toLowerCase().replace(/[^a-z]/g, '');
 
