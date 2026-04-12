@@ -85,7 +85,36 @@
         .nav-links a:hover {
             color: var(--primary-color);
         }
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Desktop မှာ Search box ကို ပုံမှန်အတိုင်း ပြထားမယ် */
+        #search {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            height: 35px;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .mobile-search-btn {
+            display: none; /* Desktop မှာ ဖျောက်ထားမယ် */
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
         /* Mobile Menu Icon (Hidden on Desktop) */
         .menu-icon {
             font-size: 2rem;
@@ -401,10 +430,31 @@
                 padding: 0 20px;
             }
 
-            .menu-icon {
-                display: block;
-                color: blue;
+           .menu-icon, .mobile-search-btn {
+                display: block; /* Mobile မှာ Icon နှစ်ခုလုံး ပြမယ် */
             }
+
+            /* Search Box ကို Mobile မှာ ပုံသေဖျောက်ထားပြီး class 'active' ရှိမှ ပြမယ် */
+            .search-wrapper {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgb(233, 116, 48);
+                padding: 10px;
+                display: none; 
+                justify-content: center;
+                z-index: 999;
+            }
+
+            .search-wrapper.active {
+                display: flex;
+            }
+
+            #search {
+                width: 90%;
+            }
+
 
             /* Show hamburger on mobile */
 
@@ -413,9 +463,9 @@
                 top: 70px;
                 right: -100%;
                 /* Hide side menu */
-                width: 70%;
+                width:30%;
                 height: 100vh;
-                background: white;
+                background: rgb(207, 145, 11);
                 flex-direction: column;
                 align-items: center;
                 padding-top: 50px;
@@ -425,6 +475,10 @@
 
             .nav-links a {
                 color: blue;
+            }
+            #ras{
+                color:blue;
+                background: transparent;
             }
 
             .nav-links.active {
@@ -456,9 +510,22 @@
     <nav>
         <div id="logo">
         </div>
+        <div class="nav-right-container">
+            <div class="search-wrapper" id="searchWrapper">
+                <input type="text" placeholder="Where do you want to go?" id="search" 
+                       onkeydown="if(event.key==='Enter') { findpage(); event.preventDefault(); }">
+            </div>
+
+            <div class="mobile-search-btn" onclick="toggleSearch()">
+                <i class="bi bi-search" id="searchIcon"></i>
+            </div>
+
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="bi bi-list" id="menuBtn"></i>
+            </div>
+        </div>
 
         <ul class="nav-links" id="navLinks">
-            <input type="text" placeholder="Where do you want to go?" id="search" onkeydown="if(event.key==='Enter') {findpage();event.preventDefault();}">
             <li><a href="home.html" onclick="closeMenu()">Home</a></li>
             <li><select id="ras" onchange="switchPage('ras')">
                     <option selected>Place to go</option>
@@ -482,10 +549,6 @@
             <li> <a href="booking.html" onclick="closeMenu()">Booking</a></li>
             <li> <a href="aboutus.html" onclick="closeMenu()">About</a></li>
         </ul>
-
-        <div class="menu-icon" onclick="toggleMenu()">
-            <i class="bi bi-list" id="menuBtn"></i>
-        </div>
     </nav>
     <header>
         <h1>EXPLORE THE WONDERS OF MYANMAR</h1>
@@ -912,11 +975,43 @@
                 }
             }
         }
+         function toggleSearch() {
+            const searchWrapper = document.getElementById('searchWrapper');
+            const searchIcon = document.getElementById('searchIcon');
+            
+            searchWrapper.classList.toggle('active');
+            
+            if(searchWrapper.classList.contains('active')) {
+                searchIcon.classList.replace('bi-search', 'bi-x-lg');
+                document.getElementById('search').focus();
+            } else {
+                searchIcon.classList.replace('bi-x-lg', 'bi-search');
+            }
+        }
+
+        // Search Logic
+        function findpage() {
+            const file = document.getElementById("search").value.trim();
+            const place = file.toLowerCase().replace(/\s+/g, '');
+            if (place != "") {
+                const eachaboutpage = ["yangon", "mandalay", "sagaing", "bago", "mon", "shan", "chin", "kayin", "kayar", "kachin", "ayeyarwaddy", "magway", "rakhine", "tanintharyi"];
+                const eachplace = ["shwedagon", "sule", "bagan", "kandawgyi", "chaungtha", "hteepwintkanwaterfall", "inlay", "kalaw", "kayinzwe", "kyaiktiyo", "kyaukkalat", "mahayatmotni", "manaungisland", "mandalayhill", "mandalaypalace", "mawlamyine", "meinmahla", "mingun", "mrauku", "nagpali", "ngwesaung", "ngwetaungdam", "pindaya", "sadancave", "sagainghill", "setse", "soonooponenyashine", "tantkyitaung", "taungdwingyi", "taungkwepagoda", "yokesone", "rihlake", "kennedypeak", "natmataung", "kanbawzathadipalace", "moeyungyi", "shwemawdawpagoda", "myitkyina", "hkakaborazi", "indawgyi", "myeik", "nyaungoophee", "maungmaganbeach"];
+                
+                if (eachaboutpage.includes(place)) {
+                    window.location.href = "eachaboutpage/" + place + ".html";
+                } else if (eachplace.includes(place)) {
+                    window.location.href = "eachplace/" + place + ".html";
+                } else {
+                    alert("စိတ်မရှိပါနဲ့ ခင်ဗျာ '" + file + "' ကို ရှာဖွေတွေ့ရှိခြင်း မရှိပါခင်ဗျာ။");
+                }
+            }
+        }
+
+        // Mobile Menu
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             const menuBtn = document.getElementById('menuBtn');
             navLinks.classList.toggle('active');
-
             if (navLinks.classList.contains('active')) {
                 menuBtn.classList.replace('bi-list', 'bi-x-lg');
             } else {
@@ -928,8 +1023,6 @@
             document.getElementById('navLinks').classList.remove('active');
             document.getElementById('menuBtn').classList.replace('bi-x-lg', 'bi-list');
         }
-
-
 
     </script>
     <script src="javascript/tab.js"></script>
