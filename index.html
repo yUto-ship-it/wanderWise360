@@ -545,8 +545,8 @@
         </div>
         <div class="nav-right-container">
             <div class="search-wrapper" id="searchWrapper">
-                <input type="text" placeholder="Where do you want to go?" id="search"
-                    onkeydown="if(event.key==='Enter') findpage()">
+                <form onsubmit="event.preventDefault(); findpage();"> <input type="text"
+                        placeholder="Where do you want to go?" id="search"></form>
             </div>
 
             <div class="mobile-search-btn" onclick="toggleSearch()">
@@ -994,27 +994,39 @@
     <script>
         function findpage() {
             event.preventDefault();
-            const file = document.getElementById("search").value.trim();
-            const place = file.toLowerCase().replace(/\s+/g, '');
-            if (place != "") {
-                const eachaboutpage = ["yangon", "mandalay", "sagaing", "bago", "mon", "shan", "chin", "kayin", "kayar", "kachin", "ayeyarwaddy", "magway", "rakhine", "tanintharyi"];
-                const eachplace = ["shwedagon", "sule", "bagan", "kandawgyi", "chaungtha", "hteepwintkanwaterfall", "inlay", "kalaw", "kayinzwe", "kyaiktiyo", "kyaukkalat", "mahayatmotni", "manaungisland", "mandalayhill", "mandalaypalace", "mawlamyine", "meinmahla", "mingun", "mrauku", "nagpali", "ngwesaung", "ngwetaungdam", "pindaya", "sadancave", "sagainghill", "setse", "soonooponenyashine", "tantkyitaung", "taungdwingyi", "taungkwepagoda", "yokesone", "rihlake", "kennedypeak", "natmataung", "kanbawzathadipalace", "moeyungyi", "shwemawdawpagoda", "myitkyina", "hkakaborazi", "indawgyi", "myeik", "nyaungoophee", "maungmaganbeach"]
-                if (eachaboutpage.includes(place)) {
-                    window.location.href = "eachaboutpage/" + place + ".html";
-                }
-                else
-                    if (eachplace.includes(place)) {
-                        window.location.href = "eachplace/" + place + ".html";
-                    }
-                    else {
-                    } Swal.fire({
-                        title: `${file} ကိုရှာဖွေ၍မရပါ`,
-                        text: "ကျေးဇူးပြု၍ အခြားသောနေရာအားရှာဖွေနိုင်ပါသည်",
-                        icon: "error"
-                    });
+            // 1. စာသားယူမယ်
+            const searchElement = document.getElementById("search");
+            const originalText = searchElement.value.trim();
+            const place = originalText.toLowerCase().replace(/\s+/g, '');
+
+            if (place === "") return;
+
+            const eachaboutpage = ["yangon", "mandalay", "sagaing", "bago", "mon", "shan", "chin", "kayin", "kayar", "kachin", "ayeyarwaddy", "magway", "rakhine", "tanintharyi"];
+
+            // ngapali ကို စာလုံးပေါင်း ပြင်ထားပါတယ်
+            const eachplace = ["shwedagon", "sule", "bagan", "kandawgyi", "chaungtha", "hteepwintkanwaterfall", "inlay", "kalaw", "kayinzwe", "kyaiktiyo", "kyaukkalat", "mahayatmotni", "manaungisland", "mandalayhill", "mandalaypalace", "mawlamyine", "meinmahla", "mingun", "mrauku", "ngapali", "ngwesaung", "ngwetaungdam", "pindaya", "sadancave", "sagainghill", "setse", "soonooponenyashine", "tantkyitaung", "taungdwingyi", "taungkwepagoda", "yokesone", "rihlake", "kennedypeak", "natmataung", "kanbawzathadipalace", "moeyungyi", "shwemawdawpagoda", "myitkyina", "hkakaborazi", "indawgyi", "myeik", "nyaungoophee", "maungmaganbeach"];
+
+            let targetUrl = "";
+
+            if (eachaboutpage.includes(place)) {
+                targetUrl = "eachaboutpage/" + place + ".html";
+            } else if (eachplace.includes(place)) {
+                targetUrl = "eachplace/" + place + ".html";
+            }
+
+            // 2. လမ်းကြောင်းရှိမှ သွားမယ်
+            if (targetUrl !== "") {
+                window.location.href = targetUrl;
+            } else {
+                // ရှာမတွေ့မှသာ Swal ကို ပြမယ်
+                Swal.fire({
+                    title: `${originalText} ကို ရှာမတွေ့ပါ`,
+                    text: "ကျေးဇူးပြု၍ အခြားသောနေရာအား ရှာဖွေနိုင်ပါသည်။",
+                    icon: "error",
+                    confirmButtonColor: '#d4a373'
+                });
             }
         }
-
         function toggleSearch() {
             const searchWrapper = document.getElementById('searchWrapper');
             const searchIcon = document.getElementById('searchIcon');
