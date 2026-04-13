@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderwise 360</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="a">
+            <nav class="navbar">
+                <img src="../image & logo/logo.png" class="logo">
+
+                <div class="nav-links">
+                    <a href="home.html">Home</a>
+                    <select id="ras" onchange="switchPage('ras')">
+                        <option selected>Place to go</option>
+                        <option value="../eachaboutpage/kachin.html">Kachin</option>
+                        <option value="../eachaboutpage/kayar.html">Kayar</option>
+                        <option value="../eachaboutpage/Kayin.html">Kayin</option>
+                        <option value="../eachaboutpage/chin.html">Chin</option>
+                        <option value="../eachaboutpage/mon.html">Mon</option>
+                        <option value="../eachaboutpage/rakhine.html">Rakhine</option>
+                        <option value="../eachaboutpage/shan.html">Shan</option>
+                        <option value="../eachaboutpage/yangon.html">Yangon</option>
+                        <option value="../eachaboutpage/mandalay.html">Mandalay</option>
+                        <option value="../eachaboutpage/bago.html">Bago</option>
+                        <option value="../eachaboutpage/magway.html">Magway</option>
+                        <option value="../eachaboutpage/ayeyarwaddy.html">Ayeyarwaddy</option>
+                        <option value="../eachaboutpage/tanintharyi.html">Tanintheryi</option>
+                        <option value="../eachaboutpage/sagaing.html">Sagaing</option>
+                    </select>
+                    <a href="service.html">Services</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="booking.html">Booking</a>
+                    <a href="aboutus.html">About</a>
+                </div>
+            </nav>
+            <div class="caption">
+                <h1>EXPLORE THE WONDERS <br>OF MYANMAR</h1>
+                <h3>Find your next adventurewith WanderWise 360</h5>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="🔍Where do you want to go?" id="search"
+                    onkeydown="if(event.key==='Enter') findpage()">
+                <button onclick="findpage()">Search</button>
+            </div>
+
+        </div>
+        <div class="fbox">
+            <div class="box">
+                <img src="../image & logo/kalaw3.jpg" class="pho">
+                <a href="../eachplace/kalaw.html" class="text">Kalaw</a>
+            </div>
+            <div class="box">
+                <img src="../image & logo/chaung.jpg" class="pho">
+                <a href="../eachplace/chaungtha.html" class="text">Chaungtha Beach</a>
+            </div>
+            <div class="box">
+                <img src="../image & logo/moeyung3.jpg" class="pho">
+                <a href="../eachplace/moeyungyi.html" class="text">Moeyungyi Sanctuary</a>
+            </div>
+            <div class="box">
+                <img src="../image & logo/kanbaw.jpg" class="pho">
+                <a href="../eachplace/kanbawzathadipalace.html" class="text">Kanbawzathadi Palace</a>
+            </div>
+            <div class="box">
+                <img src="../image & logo/man3.jpg" class="pho">
+                <a href="../eachplace/manaungisland.html" class="text">Manaung Island</a>
+            </div>
+        </div>
+        <div class="sbox">
+            <div class="state">
+                <img src="../image & logo/yangons.jpg" class="place">
+                <a href="../eachaboutpage/yangon.html" class="button">Yangon</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/mandalaya.jpg" class="place">
+                <a href="../eachaboutpage/mandalay.html" class="button">Mandalay</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/ayeyarwaddy.jpg" class="place">
+                <a href="../eachaboutpage/ayeyarwaddy.html" class="button">Ayeyarwaddy</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/bagos.jpg" class="place">
+                <a href="../eachaboutpage/bago.html" class="button">Bago</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/hotel.jpg" class="place">
+                <a href="../eachaboutpage/tanintharyi.html" class="button">Tanintharyi</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/sagaing.jpg" class="place">
+                <a href="../eachaboutpage/sagaing.html" class="button">Sagaing</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/magway.jpg" class="place">
+                <a href="../eachaboutpage/magway.html" class="button">Magway</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/hotel.jpg" class="place">
+                <a href="../eachaboutpage/kachin.html" class="button">Kachin</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/kayars.jpg" class="place">
+                <a href="../eachaboutpage/kayar.html" class="button">Kayar</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/kayins.jpg" class="place">
+                <a href="../eachaboutpage/kayin.html" class="button">Kayin</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/chin.jpg" class="place">
+                <a href="../eachaboutpage/chin.html" class="button">Chin</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/mons.jpg" class="place">
+                <a href="../eachaboutpage/mon.html" class="button">Mon</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/myauk.jpg" class="place">
+                <a href="../eachaboutpage/rakhine.html" class="button">Rakhine</a>
+            </div>
+            <div class="state">
+                <img src="../image & logo/shans.jpg" class="place">
+                <a href="../eachaboutpage/shan.html" class="button">Shan</a>
+            </div>
+        </div>
+        <div class="tbox">
+            <div class="pago">
+                <img src="../image & logo/shwedagon1.jpg" class="pagodaimg">
+                <a href="../eachplace/shwedagon.html" class="name"> Shwedagon Pagoda</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/bag.jpg" class="pagodaimg">
+                <a href="../eachplace/bagan.html" class="name"> Bagan</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/maha1.jpg" class="pagodaimg">
+                <a href="../eachplace/mahayatmotni.html" class="name"> Mahamyatmotni </a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/kyai1.jpg" class="pagodaimg">
+                <a href="../eachplace/kyaiktiyo.html" class="name">Kyaiktiyo Pagoda</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/kyauk3.jpg" class="pagodaimg">
+                <a href="../eachplace/kyaukkalat.html" class="name">Kyaukalat</a>
+            </div>
+        </div>
+        <div class="tbox">
+            <div class="pago">
+                <img src="../image & logo/nat.jpg" class="pagodaimg">
+                <a href="../eachplace/natmataung.html" class="name">Nat Ma Taung</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/zewkabin.jpg" class="pagodaimg">
+                <a href="../eachplace/kayinzwe.html" class="name">Zwekabin</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/pago1.jpg" class="pagodaimg">
+                <a href="../eachplace/mandalayhill.html" class="name">Mandalay Hill</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/min1.jpg" class="pagodaimg">
+                <a href="../eachplace/sagainghill.html" class="name">Sagaing Hill</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/hka.jpg" class="pagodaimg">
+                <a href="../eachplace/hkakaborazi.html" class="name">hkakaborazi</a>
+            </div>
+        </div>
+        <div class="tbox">
+            <div class="pago">
+                <img src="../image & logo/set.jpg" class="pagodaimg">
+                <a href="../eachplace/setse.html" class="name">Setse Beach</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/ngwe.jpg" class="pagodaimg">
+                <a href="../eachplace/ngwesaung.html" class="name">Ngwesaung Beach</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/ngapali.jpg" class="pagodaimg">
+                <a href="../eachplace/ngapali.html" class="name">Ngapali Beach</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/chaung.jpg" class="pagodaimg">
+                <a href="../eachplace/chaungtha.html" class="name">Chaungtha Beach</a>
+            </div>
+            <div class="pago">
+                <img src="../image & logo/maung.jpg" class="pagodaimg">
+                <a href="../eachplace/maungmaganbeach.html" class="name">Maungmagan</a>
+            </div>
+        </div>
+    </div>
+    <script src="../javascript/tab.js"></script>
+    <script>
+        function findpage() {
+            const file = document.getElementById("search").value.trim();
+            const place = file.toLowerCase().replace(/\s+/g, '');
+            if (place != "") {
+                const eachaboutpage = ["yangon", "mandalay", "sagaing", "bago", "mon", "shan", "chin", "kayin", "kayar", "kachin", "ayeyarwaddy", "magway", "rakhine", "tanintharyi"];
+                const eachplace = ["shwedagon", "sule", "bagan", "kandawgyi", "chaungtha", "hteepwintkanwaterfall", "inlay", "kalaw", "kayinzwe", "kyaiktiyo", "kyaukkalat", "mahayatmotni", "manaungisland", "mandalayhill", "mandalaypalace", "mawlamyine", "meinmahla", "mingun", "mrauku", "nagpali", "ngwesaung", "ngwetaungdam", "pindaya", "sadancave", "sagainghill", "setse", "soonooponenyashine", "tantkyitaung", "taungdwingyi", "taungkwepagoda", "yokesone", "rihlake", "kennedypeak", "natmataung", "kanbawzathadipalace", "moeyungyi", "shwemawdawpagoda", "myitkyina", "hkakaborazi", "indawgyi", "myeik", "nyaungoophee", "maungmaganbeach"]
+                if (eachaboutpage.includes(place)) {
+                    window.location.href = "../eachaboutpage/" + place + ".html";
+                }
+                else
+                    if (eachplace.includes(place)) {
+                        window.location.href = "../eachplace/" + place + ".html";
+                    }
+                    else {
+                        alert("စိတ်မရှိပါနဲ့ ခင်ဗျာ '" + place + "' ကို ရှာဖွေတွေရှိခြင်း မရှိပါခင်ဗျာ။ အခြားသောနေရာအားရှာဖွေနိုင်ပါသည်။");
+                    }
+            }
+        }
+        const grid = document.querySelector('.fbox');
+        const cards = document.querySelectorAll('.box');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    cards.forEach(c => c.classList.remove('active'));
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            root: grid,
+            // threshold ကို 0.7 ထားရင် အလယ်နား ရောက်တာနဲ့ ကြီးလာပါလိမ့်မယ်
+            threshold: 0.7
+        });
+
+        cards.forEach(card => observer.observe(card));
+    </script>
+</body>
+
+</html>

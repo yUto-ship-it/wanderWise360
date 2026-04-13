@@ -4,76 +4,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Services - Hotels & Transportation</title>
-    <link rel="stylesheet" href="../css/eachservice.css">
+    <title>Premium Travel Services | Mandalay</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #1a1410; 
+            --bg-card: #2a1f18; 
+            --primary-gold: #c5a059; 
+            --white: #ffffff;
+            --text-muted: #a38f85;
+            --tg-color: #0088cc;
+            --wa-color: #25D366;
+            --vb-color: #7360f2;
+            --gm-color: #ea4335;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--white); line-height: 1.6; }
+
+        header {
+            background: linear-gradient(rgba(26, 20, 16, 0.5), rgba(26, 20, 16, 0.85)), 
+                        url('../image & logo/manlay1.jpg') center/cover no-repeat;
+            height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; border-bottom: 3px solid var(--primary-gold);
+        }
+
+        header h1 { font-size: 3.5rem; font-weight: 800; color: var(--primary-gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+
+        /* --- Promo & Features --- */
+        .promo-banner {
+            background: linear-gradient(45deg, var(--bg-card), #4d3a2b);
+            border-radius: 25px; padding: 40px; margin-top: -120px; margin-bottom: 60px;
+            border: 1px solid var(--primary-gold); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 80px; text-align: center; }
+        .feature-item { padding: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 20px; border: 1px solid rgba(197, 160, 89, 0.1); }
+        .feature-item i { font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px; }
+
+        /* --- Section Styling --- */
+        .section-title { font-size: 2.2rem; margin-bottom: 40px; border-left: 6px solid var(--primary-gold); padding-left: 20px; color: var(--primary-gold); text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; margin-bottom: 80px; }
+
+        /* --- Service Cards --- */
+        .card { background: var(--bg-card); border-radius: 25px; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.2); transition: 0.4s; }
+        .card:hover { transform: translateY(-15px); border-color: var(--primary-gold); }
+        .card-img { height: 250px; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .card-body { padding: 30px; }
+        .price { font-size: 1.4rem; font-weight: 800; color: var(--primary-gold); margin-bottom: 25px; display: block; }
+
+        .btn-book {
+            display: block; text-align: center; padding: 16px; background: var(--primary-gold); color: var(--bg-dark);
+            text-decoration: none; border-radius: 14px; font-weight: 800; text-transform: uppercase; transition: 0.3s;
+        }
+
+        /* --- Transport Cards --- */
+        .transport-card { background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 35px; border: 1px dashed var(--primary-gold); }
+        .transport-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .transport-logo { background: white; padding: 5px; border-radius: 8px; height: 45px; }
+
+        /* --- Booking Form --- */
+        .booking-section {
+            background: #231a14; padding: 50px; border-radius: 30px; border: 1px solid var(--primary-gold);
+            max-width: 800px; margin: 0 auto 80px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 10px; color: var(--primary-gold); font-weight: 600; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #443328; background: #1a1410; color: white; outline: none;
+        }
+
+        .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-top: 30px; }
+        .btn-channel { padding: 15px; border: none; border-radius: 12px; color: white; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
+        .btn-tg { background: var(--tg-color); }
+        .btn-wa { background: var(--wa-color); }
+        .btn-vb { background: var(--vb-color); }
+        .btn-gm { background: var(--gm-color); }
+
+        footer { background: #110d0a; padding: 80px 20px; text-align: center; border-top: 1px solid var(--primary-gold); }
+    </style>
 </head>
 
 <body>
 
     <header>
-        <h1>The Best Travel Services For Mandalay</h1>
-        <p>Best Hotels & Comfort Transportation</p>
+        <h1>Mandalay Services</h1>
+        <p>Premium gateway to Myanmar's cultural heart. Excellence in every journey.</p>
     </header>
 
     <div class="container">
+        
+        <div class="promo-banner">
+            <div class="promo-text">
+                <h2>Seasonal Discount - 15% OFF</h2>
+                <p>Book via any platform for exclusive rewards.</p>
+            </div>
+            <a href="#booking-form" class="btn-book" style="padding: 15px 30px;">Claim Offer</a>
+        </div>
 
-        <h2>🏨 Popular Hotels</h2>
+        <div class="features">
+            <div class="feature-item"><i class="fa-solid fa-shield-check"></i><h3>Secure Booking</h3><p>Verified partners.</p></div>
+            <div class="feature-item"><i class="fa-solid fa-headset"></i><h3>24/7 Support</h3><p>Always available.</p></div>
+            <div class="feature-item"><i class="fa-solid fa-gem"></i><h3>Best Prices</h3><p>Luxury at best rates.</p></div>
+        </div>
+
+        <h2 class="section-title">Luxury Accommodations</h2>
         <div class="grid">
-            <div class="eachimage">
-                <img src="../image & logo/manlay1.jpg">
-                <p>Mercure Mandalay Hill Resort<br>Mandalay Hill<br></p>
-
-                <p>550,000-600000 MMK per day<span class="book"><a href="../major-page-html/bookingform.html">Book Now</a></span></p>
+            <div class="card">
+                <div class="card-img"><img src="../image & logo/manlay1.jpg"></div>
+                <div class="card-body">
+                    <h3>Mercure Mandalay Hill Resort</h3>
+                    <span class="price">550,000 MMK / Night</span>
+                    <a href="#booking-form" onclick="setService('Mercure Mandalay Hill Resort')" class="btn-book">Book Now</a>
+                </div>
             </div>
-
-            <div class="eachimage">
-                <img src="../image & logo/manlay2.jpg">
-                <p>The Link-78 <br> conveniently in the city center.<br></p>
-
-                <p> 240,000 - 320,000 MMK per day<span class="book"><a href="../major-page-html/bookingform.html">Book Now</a></span></p>
+            <div class="card">
+                <div class="card-img"><img src="../image & logo/manlay2.jpg"></div>
+                <div class="card-body">
+                    <h3>The Link-78 Hotel</h3>
+                    <span class="price">240,000 MMK / Night</span>
+                    <a href="#booking-form" onclick="setService('The Link-78 Hotel')" class="btn-book">Book Now</a>
+                </div>
             </div>
-
-            <div class="eachimage">
-                <img src="../image & logo/hotel.jpg.png">
-                <p>Bagan King Hotel<br>Central location,Mandalay<br></p>
-
-                <p> 180,000 - 260,000 MMK per day<span class="book"><a href="../major-page-html/bookingform.html">Book Now</a></span></p>
+             <div class="card">
+                <div class="card-img"><img src="../image & logo/manlay2.jpg"></div>
+                <div class="card-body">
+                    <h3>The Link-78 Hotel</h3>
+                    <span class="price">240,000 MMK / Night</span>
+                    <a href="#booking-form" onclick="setService('The Link-78 Hotel')" class="btn-book">Book Now</a>
+                </div>
             </div>
         </div>
 
-        <h2>🚗Transportation Services</h2>
+        <h2 class="section-title">City Transport</h2>
         <div class="grid">
-             <div class="eachimage">
-                <img src="../image & logo/kbz.png">
-                <p>Air KBZ Airline<br>Mandalay-Yangon<br>
-                    Duration: 1 hr<span style="margin-left:20px">Range: 472km</span></p>
-
-                <p>370000MMK<span class="book"><a href="../major-page-html/flight.html">Book Now</a></span></p>
+            <div class="card">
+                <div class="card-img"><img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070" alt="Taxi"></div>
+                <div class="card-body">
+                    <h3>Private City Taxi</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Full day sightseeing (8 Hours) within Mandalay.</p>
+                    <span class="price">80,000 MMK / Day</span>
+                    <a href="#booking-form" onclick="setService('Private City Taxi')" class="btn-book">Rent Now</a>
+                </div>
             </div>
-
-             <div class="eachimage">
-                <img src="../image & logo/MNA.jpg">
-                <p>MNA Airline<br>Yangon-Mandalay<br>
-                    Duration: 1 hr<span style="margin-left:20px">Range: 472km</span></p>
-
-                <p>390000MMK<span class="book"><a href="../major-page-html/flight.html">Book Now</a></span></p>
+            <div class="card">
+                <div class="card-img"><img src="https://images.unsplash.com/photo-1558981403-c5f91cbba527?q=80&w=2070" alt="Motorbike"></div>
+                <div class="card-body">
+                    <h3>Motorbike Rental</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Explore Mandalay freely with our automatic scooters.</p>
+                    <span class="price">25,000 MMK / Day</span>
+                    <a href="#booking-form" onclick="setService('Motorbike Rental')" class="btn-book">Rent Now</a>
+                </div>
             </div>
-
-            <div class="eachimage">
-                <img src="../image & logo/jj.jpg">
-                <p>JJ Express<br>Yangon-Mandalay<br>
-                    Duration: 12hr<span style="margin-left:20px">Range: 510km</span></p>
-
-                <p>35000MMK<span class="book"><a href="../major-page-html/jj.html">Book Now</a></span></p>
+             <div class="card">
+                <div class="card-img"><img src="https://images.unsplash.com/photo-1558981403-c5f91cbba527?q=80&w=2070" alt="Motorbike"></div>
+                <div class="card-body">
+                    <h3>Motorbike Rental</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Explore Mandalay freely with our automatic scooters.</p>
+                    <span class="price">25,000 MMK / Day</span>
+                    <a href="#booking-form" onclick="setService('Motorbike Rental')" class="btn-book">Rent Now</a>
+                </div>
             </div>
         </div>
 
+        <h2 class="section-title">Airlines & Bus</h2>
+        <div class="grid">
+            <div class="transport-card">
+                <div class="transport-header"><img src="../image & logo/jj.jpg" class="transport-logo"><span class="price">35,000 MMK</span></div>
+                <h3>JJ Express VIP</h3>
+                <a href="#booking-form" onclick="setService('JJ Express VIP')" class="btn-book" style="background:transparent; border:1px solid var(--primary-gold); color:var(--primary-gold); margin-top:20px;">Reserve Seat</a>
+            </div>
+            <div class="transport-card">
+                <div class="transport-header"><img src="../image & logo/jj.jpg" class="transport-logo"><span class="price">35,000 MMK</span></div>
+                <h3>JJ Express VIP</h3>
+                <a href="#booking-form" onclick="setService('JJ Express VIP')" class="btn-book" style="background:transparent; border:1px solid var(--primary-gold); color:var(--primary-gold); margin-top:20px;">Reserve Seat</a>
+            </div>
+            <div class="transport-card">
+                <div class="transport-header"><img src="../image & logo/jj.jpg" class="transport-logo"><span class="price">35,000 MMK</span></div>
+                <h3>JJ Express VIP</h3>
+                <a href="#booking-form" onclick="setService('JJ Express VIP')" class="btn-book" style="background:transparent; border:1px solid var(--primary-gold); color:var(--primary-gold); margin-top:20px;">Reserve Seat</a>
+            </div>
+        </div>
+
+        <div class="booking-section" id="booking-form">
+            <h2 style="text-align: center; color: var(--primary-gold); margin-bottom: 30px;">RESERVATION FORM</h2>
+            <form id="mainForm">
+                <div class="form-group"><label>အမည်</label><input type="text" id="name" required></div>
+                <div class="form-group"><label>ဖုန်းနံပါတ်</label><input type="tel" id="phone" required></div>
+                <div class="form-group"><label>ဝန်ဆောင်မှု</label>
+                    <select id="service">
+                        <option value="Mercure Mandalay Hill Resort">Mercure Mandalay Hill Resort</option>
+                        <option value="The Link-78 Hotel">The Link-78 Hotel</option>
+                        <option value="Private City Taxi">Private City Taxi</option>
+                        <option value="Motorbike Rental">Motorbike Rental</option>
+                        <option value="Air KBZ Flight">Air KBZ Flight</option>
+                        <option value="JJ Express VIP">JJ Express VIP</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>ရက်စွဲ</label><input type="date" id="date" required></div>
+
+                <div class="channel-grid">
+                    <button type="button" onclick="send('telegram')" class="btn-channel btn-tg"><i class="fa-brands fa-telegram"></i> Telegram</button>
+                    <button type="button" onclick="send('whatsapp')" class="btn-channel btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
+                    <button type="button" onclick="send('viber')" class="btn-channel btn-vb"><i class="fa-brands fa-viber"></i> Viber</button>
+                    <button type="button" onclick="send('gmail')" class="btn-channel btn-gm"><i class="fa-solid fa-envelope"></i> Gmail</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Travel Guide Service. All rights reserved.</p>
-    </footer>
+    <footer><p>&copy; 2026 Travel Guide Service. Mandalay - The Heart of Myanmar</p></footer>
 
+    <script>
+        function setService(val) { document.getElementById('service').value = val; }
+        function send(platform) {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+
+            if(!name || !phone || !date) { alert("အချက်အလက်ဖြည့်ပါ"); return; }
+
+            const msg = `New Booking Request%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}`;
+            const myPhone = "95673586673"; // <--- ပြောင်းရန်
+            const myTg = "yUto487_bot"; // <--- ပြောင်းရန်
+            const myEmail = "knchtwe@gmail.com"; // <--- ပြောင်းရန်
+
+            let url = "";
+            if (platform === 'telegram') url = `https://t.me/${myTg}?text=${msg}`;
+            else if (platform === 'whatsapp') url = `https://wa.me/${myPhone}?text=${msg}`;
+            else if (platform === 'viber') url = `viber://chat?number=${myPhone}&draft=${msg}`;
+            else if (platform === 'gmail') url = `mailto:${myEmail}?subject=Booking&body=${msg}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
-
 </html>

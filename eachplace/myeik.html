@@ -4,65 +4,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Myeik (Mergui) | Explore Myanmar</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/taunggyi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-dark: #1e293b;
+            --accent: #14b8a6; /* Mergui Turquoise */
+            --white: #ffffff;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../image & logo/myeik1.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            background: var(--white);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Main Glass Card */
+        .glass-card {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: cardLoad 0.8s ease-out;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--white);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .interaction-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .side-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-dot {
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            border: none;
+            background: var(--white);
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #64748b;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 10px 20px rgba(20, 184, 166, 0.3);
+        }
+
+        .info-box {
+            min-height: 240px;
+        }
+
+        .info-box h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--white);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
+        .info-list li::before {
+            content: "\f5a0"; /* Anchor Icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 16px 35px;
+            background: var(--text-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        /* Image Section */
+        .image-section {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .grid-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: 0.5s;
+            border: 2px solid transparent;
+        }
+
+        .grid-img:hover {
+            transform: scale(1.05);
+            border-color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .glass-card { grid-template-columns: 1fr; margin-top: 60px; }
+            .image-section { order: -1; padding: 30px; }
+            .image-grid { grid-template-columns: repeat(3, 1fr); }
+            .title { font-size: 2.5rem; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .interaction-area { flex-direction: column; }
+            .side-nav { flex-direction: row; justify-content: center; width: 100%; }
+            .info-box { text-align: center; }
+            .info-list li { justify-content: center; text-align: left; }
+            .image-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @keyframes cardLoad { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    </style>
 </head>
 
 <body>
-   
-    <div id="glassbox">
-        <div id="text">
-            <h1>Myeik(Mergui)</h1><br><br>
-            <div id="left">
-                <nav>
-                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
-                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
-                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
-                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+
+    <a href="../eachaboutpage/tanintharyi.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+    <div class="glass-card">
+        <section class="content-section">
+            <h1 class="title">Myeik <br><span style="font-size: 1.5rem; font-weight: 400;">The Pearl City (Mergui)</span></h1>
+
+            <div class="interaction-area">
+                <nav class="side-nav">
+                    <button class="nav-dot active" onclick="showTopic(0, this)">
+                        <i class="fa-solid fa-bookmark" title="Attraction"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(1, this)">
+                        <i class="fa-solid fa-hourglass-start" title="History"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(2, this)">
+                        <i class="fa-regular fa-clock" title="Best Time"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(3, this)">
+                        <i class="fa-solid fa-bus-simple" title="Transport"></i>
+                    </button>
                 </nav>
-                <div id="about">
-                    <h3>Attraction</h3><br>
-                    ⩥   As the gateway to the 800+ islands of the Mergui Archipelago, Myeik is famous for its rich maritime culture, colonial-era architecture, traditional boat-building yards, and local seafood markets. 
+
+                <div id="about" class="info-box">
+                    <div class="fade-in">
+                        <h3>Attraction</h3>
+                        <ul class="info-list">
+                            <li>Gateway to 800+ islands of Mergui Archipelago</li>
+                            <li>Colonial-era architecture & maritime culture</li>
+                            <li>Traditional boat-building yards & seafood markets</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <div id="img">
+            <a href="../eachservicepage/tanintheryi.html" class="cta-btn">
+                For more services <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
 
-            <img id="simg" src="../image & logo/myeik1.jpg">
-            <img id="simg" src="../image & logo/nge3.jpg">
-            <img id="simg" src="../image & logo/myeik3.png">
+        <section class="image-section">
+            <div class="image-grid">
+                <img src="../image & logo/myeik1.jpg" alt="Myeik Coast" class="grid-img">
+                <img src="../image & logo/nge3.jpg" alt="Mergui Islands" class="grid-img">
+                <img src="../image & logo/myeik3.png" alt="Maritime Culture" class="grid-img">
+            </div>
+        </section>
+    </div>
 
-        </div>
-    </div>
-    <div class="book">
-        <a id="book" href="../eachservicepage/tanintheryi.html">For more service</a>
-    </div>
-    <a id="book" href="../eachaboutpage/tanintharyi.html" style="position: absolute;top:20px;left:20px;">Back</a>
     <script>
         const data = [
             {
-                "tropic": "<h3>Attraction</h3>",
-                "list": "⩥  As the gateway to the 800+ islands of the Mergui Archipelago, Myeik is famous for its rich maritime culture, colonial-era architecture, traditional boat-building yards, and local seafood markets. "
+                "topic": "Attraction",
+                "list": "<li>Gateway to 800+ islands of Mergui Archipelago</li><li>Colonial-era architecture & maritime culture</li><li>Traditional boat-building yards & seafood markets</li>"
             },
             {
-                "tropic": "<h3>History</h3>",
-                "list": "⩥   Myeik has a history spanning over 500 years as a significant port and maritime trading hub. It has been under the influence of various powers throughout history, including the Pagan Kingdom, the Kingdom of Siam, the British, and the Japanese, all of which left their mark on the city's architecture and culture."
+                "topic": "History",
+                "list": "<li>Significant port with over 500 years of history</li><li>Influenced by Pagan, Siam, British, and Japanese eras</li><li>Renowned for the strategic and lucrative pearl industry</li>"
             },
             {
-                "tropic": "<h3>Best Time To Go</h3>",
-                "list": "⩥  Similar to other coastal areas in the region, the best time to visit is from November to May to enjoy calm seas and pleasant weather."
+                "topic": "Best Time To Go",
+                "list": "<li>November to May (Clear sky and calm seas)</li><li>Ideal for island hopping and diving excursions</li><li>Avoid the monsoon season (June - September)</li>"
             },
             {
-                "tropic": "<h3>Transportation</h3>",
-                "list": "⩥   Myeik is accessible via flights from Yangon, Dawei, or Kawthaung, and is also connected by road and sea routes."
-            },
-        ]
-        function showTopic(index) {
-            const p = document.getElementById('about');
+                "topic": "Transportation",
+                "list": "<li>Daily flights from Yangon, Dawei, or Kawthaung</li><li>Connected by road via Tanintharyi highway</li><li>Local travel via Tuk-tuk or chartered boats</li>"
+            }
+        ];
+
+        function showTopic(index, btn) {
+            document.querySelectorAll('.nav-dot').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const infoBox = document.getElementById('about');
             const item = data[index];
-            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+
+            infoBox.innerHTML = `
+                <div class="fade-in">
+                    <h3>${item.topic}</h3>
+                    <ul class="info-list">${item.list}</ul>
+                </div>
+            `;
         }
     </script>
 </body>

@@ -4,64 +4,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Setse Beach | Explore Myanmar</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/taunggyi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-dark: #1e293b;
+            --accent: #14b8a6; /* Coastal Teal */
+            --white: #ffffff;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../image & logo/set1.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            background: var(--white);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Main Glass Card */
+        .glass-card {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: cardLoad 0.8s ease-out;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--white);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .interaction-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .side-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-dot {
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            border: none;
+            background: var(--white);
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #64748b;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 10px 20px rgba(20, 184, 166, 0.4);
+        }
+
+        .info-box {
+            min-height: 240px;
+        }
+
+        .info-box h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            color: var(--white);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
+        .info-list li::before {
+            content: "\f5ca"; /* Umbrella Beach Icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 16px 35px;
+            background: var(--text-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        /* Image Section */
+        .image-section {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .grid-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.5s;
+            border: 2px solid transparent;
+        }
+
+        .grid-img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .glass-card { grid-template-columns: 1fr; margin-top: 60px; }
+            .image-section { order: -1; padding: 30px; }
+            .image-grid { grid-template-columns: repeat(3, 1fr); }
+            .title { font-size: 2.8rem; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .interaction-area { flex-direction: column; }
+            .side-nav { flex-direction: row; justify-content: center; width: 100%; }
+            .info-box { text-align: center; }
+            .info-list li { justify-content: center; text-align: left; }
+            .image-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @keyframes cardLoad { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    </style>
 </head>
 
 <body>
-   
-    <div id="glassbox">
-        <div id="text">
-            <h1>Setse Beach</h1><br><br>
-            <div id="left">
-                <nav>
-                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
-                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
-                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
-                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+
+    <a href="../eachaboutpage/mon.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+    <div class="glass-card">
+        <section class="content-section">
+            <h1 class="title">Setse Beach</h1>
+
+            <div class="interaction-area">
+                <nav class="side-nav">
+                    <button class="nav-dot active" onclick="showTopic(0, this)">
+                        <i class="fa-solid fa-bookmark" title="Attraction"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(1, this)">
+                        <i class="fa-solid fa-hourglass-start" title="History"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(2, this)">
+                        <i class="fa-regular fa-clock" title="Best Time"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(3, this)">
+                        <i class="fa-solid fa-bus-simple" title="Transport"></i>
+                    </button>
                 </nav>
-                <div id="about">
-                    <h3>Attraction</h3><br>
-                    ⩥    The beach’s character changes dramatically with the tides, revealing a massive sand shelf during the day.
+
+                <div id="about" class="info-box">
+                    <div class="fade-in">
+                        <h3>Attraction</h3>
+                        <ul class="info-list">
+                            <li>Vast sand shelf revealed during low tide</li>
+                            <li>A wide, brown-sand beach overlooking the Bay of Bengal</li>
+                            <li>Authentic coastal atmosphere and seafood</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <div id="img">
+            <a href="../eachservicepage/mon.html" class="cta-btn">
+                For more services <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
 
-            <img id="simg" src="../image & logo/set1.jpg">
-            <img id="simg" src="../image & logo/set2.jpg">
-            <img id="simg" src="../image & logo/set3.jpg">
-        </div>
+        <section class="image-section">
+            <div class="image-grid">
+                <img src="../image & logo/set1.jpg" alt="Beach View" class="grid-img">
+                <img src="../image & logo/set2.jpg" alt="Sand Shelf" class="grid-img">
+                <img src="../image & logo/set3.jpg" alt="Coastline" class="grid-img">
+            </div>
+        </section>
     </div>
-    <div class="book">
-        <a id="book" href="../eachservicepage/mon.html">For more service</a>
-    </div>
-    <a id="book" href="../eachaboutpage/mon.html" style="position: absolute;top:20px;left:20px;">Back</a>
+
     <script>
         const data = [
             {
-                "tropic": "<h3>Attraction</h3>",
-                "list": "⩥   The beach’s character changes dramatically with the tides, revealing a massive sand shelf during the day."
+                "topic": "Attraction",
+                "list": "<li>Dramatic tidal changes revealing massive sand flats</li><li>Wide brown-sand coastline overlooking the Bay of Bengal</li><li>Relaxing atmosphere away from crowded resorts</li>"
             },
             {
-                "tropic": "<h3>History</h3>",
-                "list": "⩥  Setse Beach is a wide, brown-sand beach overlooking the Bay of Bengal, famous for its vast tidal flats. Unlike typical white-sand resorts, Setse offers a glimpse into the traditional coastal lifestyle of the Mon people, including salt production and fishing."
+                "topic": "History",
+                "list": "<li>Traditional coastal lifestyle of the Mon people</li><li>Famous for local salt production and fishing heritage</li><li>A long-standing local favorite weekend getaway</li>"
             },
             {
-                "tropic": "<h3>Best Time To Go</h3>",
-                "list": "⩥   November to May<br>⩥   The water is calmest during the dry season."
+                "topic": "Best Time To Go",
+                "list": "<li>November to May (Dry Season)</li><li>The water is calmest and weather is sunny</li><li>Ideal for beach walks and local exploration</li>"
             },
             {
-                "tropic": "<h3>Transportation</h3>",
-                "list": "⩥   A 2.5-hour drive from Mawlamyine via private taxi or bus."
-            },
-        ]
-        function showTopic(index) {
-            const p = document.getElementById('about');
+                "topic": "Transportation",
+                "list": "<li>2.5-hour drive from Mawlamyine city</li><li>Accessible via private taxi or local bus</li><li>Scenic road trip through Mon State villages</li>"
+            }
+        ];
+
+        function showTopic(index, btn) {
+            document.querySelectorAll('.nav-dot').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const infoBox = document.getElementById('about');
             const item = data[index];
-            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+
+            infoBox.innerHTML = `
+                <div class="fade-in">
+                    <h3>${item.topic}</h3>
+                    <ul class="info-list">${item.list}</ul>
+                </div>
+            `;
         }
     </script>
 </body>

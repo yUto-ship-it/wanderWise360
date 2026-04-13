@@ -4,66 +4,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kennedy Peak | Explore Myanmar</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/taunggyi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- Inlay Design CSS System --- */
+        :root {
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-dark: #1e293b;
+            --accent: #f39c12; /* Chin Hills အတွက် Amber/Orange လေးသုံးထားပါတယ် */
+            --white: #ffffff;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../image & logo/peak1.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            background: var(--white);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Main Glass Card */
+        .glass-card {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: cardLoad 0.8s ease-out;
+        }
+
+        /* Left Content */
+        .content-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--white); /* တောင်ပေါ် background နဲ့ဆိုတော့ အဖြူက ပိုပေါ်ပါတယ် */
+            letter-spacing: -2px;
+            line-height: 1.1;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .interaction-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .side-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-dot {
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            border: none;
+            background: var(--white);
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            color: #64748b;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 10px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        .nav-dot:hover:not(.active) {
+            transform: translateY(-3px);
+            background: #f1f5f9;
+        }
+
+        .info-box {
+            min-height: 200px;
+        }
+
+        .info-box h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            color: var(--white);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
+        .info-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 16px 35px;
+            background: var(--text-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(243, 156, 18, 0.3);
+        }
+
+        /* Right Image Grid */
+        .image-section {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .grid-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: 0.5s;
+            border: 2px solid transparent;
+        }
+
+        .grid-img:hover {
+            transform: scale(1.05);
+            border-color: var(--white);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .glass-card { grid-template-columns: 1fr; margin-top: 60px; }
+            .image-section { order: -1; padding: 30px; }
+            .image-grid { grid-template-columns: repeat(3, 1fr); }
+            .title { font-size: 3rem; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .interaction-area { flex-direction: column; }
+            .side-nav { flex-direction: row; justify-content: center; width: 100%; }
+            .info-box { text-align: center; }
+            .info-list li { justify-content: center; }
+            .image-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @keyframes cardLoad { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    </style>
 </head>
 
 <body>
 
-    <div id="glassbox">
-        <div id="text">
-            <h1>Kennedy Peak</h1><br><br>
-            <div id="left">
-                <nav>
-                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
-                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
-                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
-                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+    <a href="../eachaboutpage/chin.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+    <div class="glass-card">
+        <section class="content-section">
+            <h1 class="title">Kennedy Peak</h1>
+
+            <div class="interaction-area">
+                <nav class="side-nav">
+                    <button class="nav-dot active" onclick="showTopic(0, this)">
+                        <i class="fa-solid fa-bookmark" title="Attraction"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(1, this)">
+                        <i class="fa-solid fa-hourglass-start" title="History"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(2, this)">
+                        <i class="fa-regular fa-clock" title="Best Time"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(3, this)">
+                        <i class="fa-solid fa-bus-simple" title="Transport"></i>
+                    </button>
                 </nav>
-                <div id="about">
-                    <h3>Attraction</h3><br>
-                    ⩥ The second-highest mountain in Chin State (2,703m). Offers a 360-degree view of the Chin Hills and
-                    the Indian border. It is a relatively easy trek.
+
+                <div id="about" class="info-box">
+                    <div class="fade-in">
+                        <h3>Attraction</h3>
+                        <ul class="info-list">
+                            <li>The second-highest mountain in Chin State (2,703m)</li>
+                            <li>360-degree panoramic view of Chin Hills</li>
+                            <li>Visible Indian border from the summit</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <div id="img">
+            <a href="../eachservicepage/chin.html" class="cta-btn">
+                For more services <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
 
-            <img id="simg" src="../image & logo/peak1.jpg">
-            <img id="simg" src="../image & logo/peak2.jpg">
-            <img id="simg" src="../image & logo/peak3.jpg">
+        <section class="image-section">
+            <div class="image-grid">
+                <img src="../image & logo/peak1.jpg" alt="Peak View" class="grid-img">
+                <img src="../image & logo/peak2.jpg" alt="Hiking Trail" class="grid-img">
+                <img src="../image & logo/peak3.jpg" alt="Summit" class="grid-img">
+            </div>
+        </section>
+    </div>
 
-        </div>
-    </div>
-    <div class="book">
-        <a id="book" href="../eachservicepage/chin.html">For more service</a>
-    </div>
-    <a id="book" href="../eachaboutpage/chin.html" style="position: absolute;top:20px;left:20px;">Back</a>
     <script>
         const data = [
             {
-                "tropic": "<h3>Attraction</h3>",
-                "list": "⩥  The second-highest mountain in Chin State (2,703m). Offers a 360-degree view of the Chin Hills and the Indian border. It is a relatively easy trek."
+                "topic": "Attraction",
+                "list": "<li>The second-highest mountain in Chin State (2,703m)</li><li>360-degree panoramic view of Chin Hills</li><li>Visible Indian border from the summit</li>"
             },
             {
-                "tropic": "<h3>History</h3>",
-                "list": "⩥   It gained historical fame as a strategic battleground during World War II between British and Japanese forces."
+                "topic": "History",
+                "list": "<li>Strategic battleground during World War II</li><li>Historic sites between British and Japanese forces</li><li>Heritage of the Zomi/Chin people</li>"
             },
             {
-                "tropic": "<h3>Best Time To Go</h3>",
-                "list": "⩥  during the cool dry season from November to February, when clear skies offer panoramic views reaching as far as India and trekking conditions are most comfortable"
+                "topic": "Best Time To Go",
+                "list": "<li>November to February (Cool dry season)</li><li>Clear skies for panoramic views</li><li>Comfortable trekking temperatures</li>"
             },
             {
-                "tropic": "<h3>Transportation</h3>",
-                "list": "⩥   Accessible via the Tedim-Kalay Road."
-            },
-        ]
-        function showTopic(index) {
-            const p = document.getElementById('about');
+                "topic": "Transportation",
+                "list": "<li>Accessible via Tedim-Kalay Road</li><li>Trek starts from the roadside base</li><li>4WD vehicles recommended for the base access</li>"
+            }
+        ];
+
+        function showTopic(index, btn) {
+            document.querySelectorAll('.nav-dot').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const infoBox = document.getElementById('about');
             const item = data[index];
-            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+
+            infoBox.innerHTML = `
+                <div class="fade-in">
+                    <h3>${item.topic}</h3>
+                    <ul class="info-list">${item.list}</ul>
+                </div>
+            `;
         }
     </script>
 </body>

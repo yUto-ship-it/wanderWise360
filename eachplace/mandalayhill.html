@@ -4,65 +4,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mandalay Hill | Explore Myanmar</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/taunggyi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-dark: #1e293b;
+            --accent: #f1c40f; /* Mandalay Sunset Gold */
+            --white: #ffffff;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../image & logo/pago1.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            background: var(--white);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: var(--text-dark);
+        }
+
+        /* Main Glass Card */
+        .glass-card {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: cardLoad 0.8s ease-out;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--white);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .interaction-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .side-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-dot {
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            border: none;
+            background: var(--white);
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #64748b;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            color: var(--text-dark);
+            transform: scale(1.15);
+            box-shadow: 0 10px 20px rgba(241, 196, 15, 0.4);
+        }
+
+        .info-box {
+            min-height: 200px;
+        }
+
+        .info-box h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            color: var(--white);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
+        .info-list li::before {
+            content: "\f005"; /* Star Icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 16px 35px;
+            background: var(--text-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            color: var(--text-dark);
+            transform: translateY(-4px);
+        }
+
+        /* Image Section */
+        .image-section {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .grid-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: 0.5s;
+            border: 2px solid transparent;
+        }
+
+        .grid-img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .glass-card { grid-template-columns: 1fr; margin-top: 60px; }
+            .image-section { order: -1; padding: 30px; }
+            .image-grid { grid-template-columns: repeat(3, 1fr); }
+            .title { font-size: 2.8rem; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .interaction-area { flex-direction: column; }
+            .side-nav { flex-direction: row; justify-content: center; width: 100%; }
+            .info-box { text-align: center; }
+            .info-list li { justify-content: center; text-align: left; }
+            .image-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @keyframes cardLoad { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    </style>
 </head>
 
 <body>
-   
-    <div id="glassbox">
-        <div id="text">
-            <h1>Mandalay Hill</h1><br><br>
-            <div id="left">
-                <nav>
-                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
-                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
-                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
-                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+
+    <a href="../major-page-html/home.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+    <div class="glass-card">
+        <section class="content-section">
+            <h1 class="title">Mandalay Hill</h1>
+
+            <div class="interaction-area">
+                <nav class="side-nav">
+                    <button class="nav-dot active" onclick="showTopic(0, this)">
+                        <i class="fa-solid fa-bookmark" title="Attraction"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(1, this)">
+                        <i class="fa-solid fa-hourglass-start" title="History"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(2, this)">
+                        <i class="fa-regular fa-clock" title="Best Time"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(3, this)">
+                        <i class="fa-solid fa-bus-simple" title="Transport"></i>
+                    </button>
                 </nav>
-                <div id="about">
-                    <h3>Attraction</h3><br>
-                    ⩥   Panoramic view of the whole city.Famous sunset viewing spot.
+
+                <div id="about" class="info-box">
+                    <div class="fade-in">
+                        <h3>Attraction</h3>
+                        <ul class="info-list">
+                            <li>Panoramic view of the whole city</li>
+                            <li>Famous sunset viewing spot in Mandalay</li>
+                            <li>Breathtaking landscape for photography</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <div id="img">
+            <a href="../eachservicepage/mandalay.html" class="cta-btn">
+                For more services <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
 
-            <img id="simg" src="../image & logo/pago1.jpg">
-            <img id="simg" src="../image & logo/pago2.jpg">
-            <img id="simg" src="../image & logo/pago3.jpg">
+        <section class="image-section">
+            <div class="image-grid">
+                <img src="../image & logo/pago1.jpg" alt="Hill View 1" class="grid-img">
+                <img src="../image & logo/pago2.jpg" alt="Hill View 2" class="grid-img">
+                <img src="../image & logo/pago3.jpg" alt="Hill View 3" class="grid-img">
+            </div>
+        </section>
+    </div>
 
-        </div>
-    </div>
-    <div class="book">
-        <a id="book" href="../eachservicepage/mandalay.html">For more service</a>
-    </div>
-    <a id="book" href="../major-page-html/home.html" style="position: absolute;top:20px;left:20px;">Back</a>
     <script>
         const data = [
             {
-                "tropic": "<h3>Attraction</h3>",
-                "list": "⩥  Panoramic view of the whole city.Famous sunset viewing spot"
+                "topic": "Attraction",
+                "list": "<li>Panoramic view of the whole city</li><li>Famous sunset viewing spot in Mandalay</li><li>Breathtaking landscape for photography</li>"
             },
             {
-                "tropic": "<h3>History</h3>",
-                "list": "⩥   A historic hill with many pagodas and religious shrines"
+                "topic": "History",
+                "list": "<li>A historic hill with many pagodas</li><li>Numerous religious shrines and legends</li><li>Important spiritual landmark for Buddhists</li>"
             },
             {
-                "tropic": "<h3>Best Time To Go</h3>",
-                "list": "⩥   Sunset time (5–6:30 PM)"
+                "topic": "Best Time To Go",
+                "list": "<li>Sunset time (5:00 PM – 6:30 PM)</li><li>Early morning for a peaceful sunrise</li><li>Cooler weather during Nov to Feb</li>"
             },
             {
-                "tropic": "<h3>Transportation</h3>",
-                "list": "⩥   Taxi <br>⩥   Motorbike"
-            },
-        ]
-        function showTopic(index) {
-            const p = document.getElementById('about');
+                "topic": "Transportation",
+                "list": "<li>Taxi or Private Car</li><li>Motorbike rental or Motorbike taxi</li><li>Escalators and lifts are available at the top</li>"
+            }
+        ];
+
+        function showTopic(index, btn) {
+            document.querySelectorAll('.nav-dot').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const infoBox = document.getElementById('about');
             const item = data[index];
-            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+
+            infoBox.innerHTML = `
+                <div class="fade-in">
+                    <h3>${item.topic}</h3>
+                    <ul class="info-list">${item.list}</ul>
+                </div>
+            `;
         }
     </script>
 </body>

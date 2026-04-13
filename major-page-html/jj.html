@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ Express Booking</title>
+    <link rel="stylesheet" href="../css/transportationbooking.css">
+
+</head>
+
+<body>
+    <fieldset style="background:url('../image & logo/car.png');background-repeat: no-repeat;background-size: cover;">
+        <legend>
+            <img src="../image & logo/jj.png">
+        </legend>
+        <div class="input">
+            <label for="name">From</label>
+            <input type="text" id="from">
+        </div>
+        <div class="input">
+            <label for="name">To</label>
+            <input type="text" id="to">
+        </div>
+        <div class="input">
+            <label for="name">Full Name</label>
+            <input type="text" id="name">
+        </div>
+        <div class="input">
+            <label for="NRC">NRC no.</label>
+            <div>
+                <select id="nrc">
+                    <option value="1/">1/</option>
+                    <option value="2/">2/</option>
+                    <option value="3/">3/</option>
+                    <option value="4/">4/</option>
+                    <option value="5/">5/</option>
+                    <option value="6/">6/</option>
+                    <option value="7/">7/</option>
+                    <option value="8/">8/</option>
+                    <option value="9/">9/</option>
+                    <option value="10/">10/</option>
+                    <option value="11/">11/</option>
+                    <option value="12/">12/</option>
+                    <option value="13/">13/</option>
+                    <option value="14/">14/</option>
+                </select>
+                <input type="text" placeholder="Town" id="town">
+                <select id="coty">
+                    <option value="(N)">(N)</option>
+                    <option value="(E)">(E)</option>
+                    <option value="(P)">(P)</option>
+                    <option value="(T)">(T)</option>
+                    <option value="(S)">(S)</option>
+                </select>
+                <input type="number" style="width:80px;" id="a" min="0">
+            </div>
+        </div>
+        <div class="input">
+            <label>Phone Number</label>
+            <div class="phone-container">
+                <select class="region-code" name="countryCode">
+                    <option value="+95" selected>Myanmar (+95)</option>
+                    <option value="+81">Japan (+81)</option>
+                    <option value="+82">S. Korea (+82)</option>
+                    <option value="+66">Thailand (+66)</option>
+                    <option value="+65">Singapore (+65)</option>
+                    <option value="+60">Malaysia (+60)</option>
+                    <option value="+84">Vietnam (+84)</option>
+                    <option value="+62">Indonesia (+62)</option>
+                    <option value="+63">Philippines (+63)</option>
+                    <option value="+86">China (+86)</option>
+                </select>
+                <input type="tel"  placeholder="912345678" style="flex:1;width:120px;" name="phone" >
+            </div>
+        </div>
+        <div class="input">
+            <label for="in">Deperture Date</label>
+            <input type="date" id="in">
+        </div>
+        <div class="input">
+            <label>Class</label>
+            <div class="car">
+                <select class="carclass" id="carclass">
+                    <option value=""></option>
+                    <option value="VIP">VIP(2+1)</option>
+                    <option value="Normal">Normal(2+2)</option>
+                </select>
+            </div>
+        </div>
+        <div class="input">
+            <label>Passenger</label>
+            <select id="gender">
+                <option value="Group">Group</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Monk">Monk</option>
+            </select>
+        </div>
+        <div class="input">
+            <label>Payment Method</label>
+            <select id="pay">
+                <option value="Kpay">Kpay-09 673586673<img src="../image & logo/inlay.jpg"></option>
+                <option value="UAB pay">UAB pay-09 673586673</option>
+                <option value="AYA pay">AYA pay-09 673586673</option>
+                <option value="CB pay">CB pay-09 673586673</option>
+                <option value="VISA card">VISA card-09 673586673</option>
+                <option vlaue="Bank Transfer">Bank Transfer</option>
+            </select>
+        </div>
+        <button type="submit" onclick="generateTicket(event)" class="button">Book Now</button>
+        <div id="ticket">
+            <div id="ticket-box" style="background: url(../image\ &\ logo/jjticketbg.jpg);">
+                <h2 style="color:blue;">Booking Ticket</h2>
+                <div id="ticketdata"></div>
+                <button onclick="window.print()">Save</button>
+            </div>
+        </div>
+    </fieldset>
+    </div>
+    <script src="../javascript/transportationbooking.js">
+
+    </script>
+</body>
+
+</html>
