@@ -1,37 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/ptogoinner.css">
+    <title>Explore Bago Region | Myanmar</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #f39c12;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body {
+            min-height: 100vh;
+            /* Bago Background */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('../image & logo/bagos.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .back-btn {
+            position: fixed; top: 30px; left: 30px;
+            text-decoration: none; color: var(--white);
+            background: var(--glass); backdrop-filter: blur(10px);
+            padding: 12px 25px; border-radius: 50px;
+            border: 1px solid var(--glass-border); font-weight: 600;
+            transition: 0.3s; z-index: 100; display: flex; align-items: center; gap: 10px;
+        }
+
+        .back-btn:hover { background: var(--accent); transform: translateX(-5px); border-color: var(--accent); }
+
+        .main-container { width: 100%; max-width: 1200px; text-align: center; }
+
+        .hero-text { margin-bottom: 60px; color: var(--white); animation: fadeInDown 1s ease-out; }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 800;
+            letter-spacing: -2px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            max-width: 750px; margin: 0 auto; font-size: 1.15rem; line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);
+            padding: 25px 35px; border-radius: 25px; border: 1px solid var(--glass-border);
+        }
+
+        .destinations-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; padding: 20px 0;
+        }
+
+        .dest-card {
+            position: relative; height: 450px; border-radius: 35px;
+            overflow: hidden; text-decoration: none; border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
+
+        .card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 15%, transparent 65%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 35px; color: var(--white); text-align: left;
+        }
+
+        .card-overlay h2 { font-size: 1.9rem; margin-bottom: 12px; transition: 0.4s; }
+
+        .card-overlay p { font-size: 0.95rem; opacity: 0; transform: translateY(20px); transition: 0.4s; color: rgba(255,255,255,0.8); }
+
+        .explore-label { margin-top: 15px; font-weight: 600; color: var(--accent); font-size: 0.9rem; opacity: 0; transition: 0.4s; display: flex; align-items: center; gap: 8px; }
+
+        .dest-card:hover { transform: translateY(-15px) scale(1.02); }
+        .dest-card:hover img { transform: scale(1.1); }
+        .dest-card:hover .card-overlay p, .dest-card:hover .explore-label { opacity: 1; transform: translateY(0); }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 3.5rem; }
+            .dest-card { height: 380px; }
+            .destinations-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
+<body>
 
-<body style="background: url('../image & logo/bagos.jpg');background-repeat: no-repeat;background-size: cover;">
-    <div id="glassbox">
-        <div id="text">
-            <h1>Bago Region</h1><br><br>
+    <a href="../major-page-html/home.html" class="back-btn">
+        <i class="fa-solid fa-house"></i> Home
+    </a>
+
+    <div class="main-container">
+        <header class="hero-text">
+            <h1>Bago Region</h1>
             <p>
-                Bago is an ancient capital of the Mon and Myanmar kingdoms located near Yangon, famous for its massive
-                Shwemawdaw Pagoda, the giant Shwethalyaung reclining Buddha, and the reconstructed 16th-century
-                Kanbawzathadi Palace
+                An ancient royal capital steeped in history. Discover magnificent golden pagodas, 
+                reconstructed royal palaces, and tranquil wetland sanctuaries.
             </p>
+        </header>
+
+        <div class="destinations-grid">
+            
+            <a href="../eachplace/kanbawzathadipalace.html" class="dest-card">
+                <img src="../image & logo/kanbaw.jpg" alt="Kanbawzathadi Palace">
+                <div class="card-overlay">
+                    <h2>Kanbawzathadi Palace</h2>
+                    <p>The 16th-century royal palace of King Bayinnaung, showcasing the grandeur of the Second Myanmar Empire.</p>
+                    <span class="explore-label">Visit The Palace <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
+
+            <a href="../eachplace/shwemawdawpagoda.html" class="dest-card">
+                <img src="../image & logo/shwemaw.jpg" alt="Shwemawdaw Pagoda">
+                <div class="card-overlay">
+                    <h2>Shwemawdaw Pagoda</h2>
+                    <p>The tallest pagoda in Myanmar, a symbol of Bago with over 1,000 years of religious heritage.</p>
+                    <span class="explore-label">Explore The Pagoda <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
+
+            <a href="../eachplace/Moeyungyi.html" class="dest-card">
+                <img src="../image & logo/moeyung.jpg" alt="Moeyungyi Wetland">
+                <div class="card-overlay">
+                    <h2>Moeyungyi Wetland</h2>
+                    <p>A paradise for bird watchers and nature lovers, offering tranquil boat trips and rich biodiversity.</p>
+                    <span class="explore-label">Discover Wildlife <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
 
         </div>
-        <div id="img">
-            <a href="../eachplace/kanbawzathadipalace.html"> <img id="fimg" src="../image & logo/kanbaw.jpg"></a>
-            <a href="../eachplace/shwemawdawpagoda.html"> <img id="simg" src="../image & logo/shwemaw.jpg"></a>
-            <a href="../eachplace/Moeyungyi.html"><img id="simg" src="../image & logo/moeyung.jpg"></a>
-
-        </div>
-
     </div>
-    <label style="top:350px;left:800px;">Kanbawzathadi Palace</label>
-    <label style="top:350px;left:960px;">Shwemawdaw Pagoda</label>
-    <label style="top:350px;left:1120px;">Moeyungyi Wetland <br>Sanctuary</label>
-    <a id="book" href="../major-page-html/home.html"
-        style="position: absolute;top:20px;left:20px;text-decoration: none;background: rgb(219, 145, 16);padding:5px;border-radius: 5px;">Back</a>
-</body>
 
+</body>
 </html>

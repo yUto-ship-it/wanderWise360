@@ -1,36 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/ptogoinner.css">
+    <title>Explore Kayah State | Myanmar</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* အပေါ်က Shan State မှာသုံးခဲ့တဲ့ CSS တွေကိုပဲ ဒီမှာ ပြန်သုံးထားပါတယ် */
+        :root {
+            --accent: #f39c12;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('../image & logo/kayars.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .back-btn {
+            position: fixed; top: 30px; left: 30px;
+            text-decoration: none; color: var(--white);
+            background: var(--glass); backdrop-filter: blur(10px);
+            padding: 12px 25px; border-radius: 50px;
+            border: 1px solid var(--glass-border); font-weight: 600;
+            transition: 0.3s; z-index: 100; display: flex; align-items: center; gap: 10px;
+        }
+
+        .back-btn:hover { background: var(--accent); transform: translateX(-5px); border-color: var(--accent); }
+
+        .main-container { width: 100%; max-width: 1200px; text-align: center; }
+
+        .hero-text { margin-bottom: 60px; color: var(--white); animation: fadeInDown 1s ease-out; }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 800;
+            letter-spacing: -2px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(8px);
+            padding: 20px; border-radius: 20px; border: 1px solid var(--glass-border);
+        }
+
+        .destinations-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; padding: 20px 0;
+        }
+
+        .dest-card {
+            position: relative; height: 450px; border-radius: 30px;
+            overflow: hidden; text-decoration: none; border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+
+        .card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent 60%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 35px; color: var(--white); text-align: left;
+        }
+
+        .card-overlay h2 { font-size: 2rem; margin-bottom: 10px; transition: 0.4s; }
+
+        .card-overlay p { font-size: 0.9rem; opacity: 0; transform: translateY(20px); transition: 0.4s; color: rgba(255,255,255,0.7); }
+
+        .explore-label { margin-top: 15px; font-weight: 600; color: var(--accent); font-size: 0.9rem; opacity: 0; transition: 0.4s; }
+
+        .dest-card:hover { transform: translateY(-15px); }
+        .dest-card:hover img { transform: scale(1.1); }
+        .dest-card:hover .card-overlay p, .dest-card:hover .explore-label { opacity: 1; transform: translateY(0); }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 3.2rem; }
+            .dest-card { height: 380px; }
+        }
+    </style>
 </head>
+<body>
 
-<body style="background: url('../image & logo/kayars.jpg');background-repeat: no-repeat;background-size:cover;">
-    <div id="glassbox">
-        <div id="text">
-            <h1>Kayar State</h1><br><br>
+    <a href="../major-page-html/home.html" class="back-btn">
+        <i class="fa-solid fa-chevron-left"></i> Home
+    </a>
+
+    <div class="main-container">
+        <header class="hero-text">
+            <h1>Kayah State</h1>
             <p>
-                Kayah State is often described as a "hidden gem." It offers a perfect mix of breathtaking landscapes,
-                unique tribal traditions, and a quiet, untouched atmosphere compared to the more crowded tourist
-                destinations in Myanmar.
+                Discover Myanmar's "Hidden Gem." A land of breathtaking landscapes, 
+                sacred traditions, and untouched natural beauty awaiting your arrival.
             </p>
+        </header>
+
+        <div class="destinations-grid">
+            
+            <a href="../eachplace/taungkwepagoda.html" class="dest-card">
+                <img src="../image & logo/taungkwe1.jpg" alt="Taung Kwe Pagoda">
+                <div class="card-overlay">
+                    <h2>Taung Kwe Pagoda</h2>
+                    <p>The iconic landmark of Loikaw, built on limestone rocks with stunning city views.</p>
+                    <span class="explore-label">Explore More <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
+
+            <a href="../eachplace/hteepwintkanwaterfall.html" class="dest-card">
+                <img src="../image & logo/htee.jpg" alt="Htee Pwint Kan">
+                <div class="card-overlay">
+                    <h2>Htee Pwint Kan</h2>
+                    <p>The mysterious "Umbrella Pond" where the earth bubbles up in unique shapes.</p>
+                    <span class="explore-label">Explore More <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
+
+            <a href="../eachplace/ngwetaungdam.html" class="dest-card">
+                <img src="../image & logo/ngwetaung.jpg" alt="Ngwe Taung Dam">
+                <div class="card-overlay">
+                    <h2>Ngwe Taung Dam</h2>
+                    <p>A peaceful spot perfect for sunset watching with a backdrop of misty mountains.</p>
+                    <span class="explore-label">Explore More <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
 
         </div>
-        <div id="img">
-            <a href="../eachplace/taungkwepagoda.html"> <img id="fimg" src="../image & logo/taungkwe1.jpg"></a>
-            <a href="../eachplace/hteepwintkanwaterfall.html"> <img id="simg" src="../image & logo/htee.jpg"></a>
-            <a href="../eachplace/ngwetaungdam.html"><img id="simg" src="../image & logo/ngwetaung.jpg"></a>
-
-        </div>
-
     </div>
-    <label style="top:350px;left:810px;">Taung Kwe Pagoda</label>
-    <label style="top:350px;left:980px;">Htee Pwint Kan<br> Waterfall</label>
-    <label style="top:350px;left:1130px;">Ngwe Taung Dam</label>
-    <a id="book" href="../major-page-html/home.html" style="position: absolute;top:20px;left:20px;text-decoration: none;background: rgb(219, 145, 16);padding:5px;border-radius: 5px;">Back</a>
-</body>
 
+</body>
 </html>

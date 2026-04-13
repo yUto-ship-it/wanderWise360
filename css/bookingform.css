@@ -1,0 +1,166 @@
+body {
+    background: url('../image & logo/hotel.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    justify-items: center;
+    padding: 70px;
+    background-attachment: fixed;
+}
+
+fieldset {
+    width: 400px;
+    height: 700px;
+    margin-left: 80px;
+    border-radius: 5px;
+    padding: 30px;
+    background: rgba(104, 205, 236, 0.64);
+    border:none;
+}
+
+legend {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    display: block;
+}
+
+legend img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+input {
+    padding: 5px;
+    width: 200px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    margin-top: 2px;
+
+}
+
+.input {
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.input label {
+    color: rgb(56, 16, 232);
+    text-align: left;
+    margin-bottom: 2px;
+}
+#town{
+    width:40px;
+    height:15px;
+    font-size: 10px;
+
+}
+#nrc{
+     padding: 5px;
+    width: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    margin-top: 2px;
+}
+#coty{
+      padding: 5px;
+    width: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    margin-top: 2px;
+}
+option {
+    font-size: 9px;
+}
+
+.phone-container {
+    display: flex;
+    gap: 5px;
+    flex: 1;
+    width: 150px;
+}
+
+.region-code {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 9px;
+}
+
+.roomtype {
+    padding: 6px;
+    width: 210px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    margin-top: 2px;
+}
+label{
+    color:violet;
+}
+#ticket {
+    display: none;
+}
+#ticket-box{
+    border:1px solid gray;
+    background: white;
+    box-shadow: 0 0 20px black;
+    padding:30px;
+    width:220px;
+    height:350px;
+    border-radius: 3px;
+    transform: translateY(-20px);
+     font-size: 12px;
+    color:rgb(27, 116, 218);
+}
+@media print {
+    body {
+        visibility: hidden;
+    }
+
+    #ticket,
+    #ticket {
+        visibility: visible;
+    }
+    #ticket{
+        position: absolute;
+        left:80%;
+        top:200px;
+        transform: translateX(-50%);
+        width:100%;
+        max-width:100%;
+        align-items: center;
+        align-content: center;
+    }
+}
+#pay{
+    padding: 6px;
+    width: 210px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    margin-top: 2px;
+}
+h3{
+    font-size: 20px;
+    color:rgb(12, 172, 118);
+    text-shadow: 0 0 15px rgb(27, 186, 123);
+    text-align: center;
+}
+button{
+    border-radius: 5px;
+    background: rgb(18, 7, 226);
+    color:white;
+    border:none;
+    padding:4px;
+    justify-content: center;
+    justify-items: center;
+    float:right;
+}

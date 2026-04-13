@@ -4,65 +4,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inlay Lake | Explore Myanmar</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/taunggyi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-dark: #1e293b;
+            --accent: #ff9f43;
+            --white: #ffffff;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            /* Background ပုံကို Inlay Lake ပုံနဲ့ လှလှပပ ပြောင်းထားနိုင်ပါတယ် */
+            background: url("../image & logo/inlay.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            background: var(--white);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Main Glass Card */
+        .glass-card {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: cardLoad 0.8s ease-out;
+        }
+
+        /* Left Side: Content */
+        .content-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .interaction-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        /* Vertical Navigation */
+        .side-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-dot {
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            border: none;
+            background: var(--white);
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            color: #64748b;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 10px 20px rgba(255, 159, 67, 0.4);
+        }
+
+        .nav-dot:hover:not(.active) {
+            transform: translateY(-3px);
+            background: #f1f5f9;
+        }
+
+        /* Info Display Box */
+        .info-box {
+            min-height: 200px;
+        }
+
+        .info-box h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            color: white;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.4;
+        }
+
+        .info-list li::before {
+            content: "\f058";
+            /* FontAwesome Circle Check */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        /* Footer CTA Button */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 16px 35px;
+            background: var(--text-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(255, 159, 67, 0.3);
+        }
+
+        /* Right Side: Image Grid */
+        .image-section {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .grid-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+
+        .grid-img:hover {
+            transform: scale(1.05) rotate(1deg);
+            border-color: var(--white);
+            z-index: 2;
+        }
+
+        #only {
+            display: none;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 992px) {
+            .glass-card {
+                grid-template-columns: 1fr;
+                margin-top: 60px;
+            }
+
+            .image-section {
+                order: -1;
+                /* ပုံကို အပေါ်တင်လိုက်မယ် */
+                padding: 30px;
+            }
+
+            .image-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .grid-img {
+                height: 150px;
+            }
+
+            .title {
+                font-size: 3.5rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.8rem;
+            }
+            #only{
+                display: block;
+            }
+
+            .content-section {
+                padding: 30px;
+            }
+
+            .interaction-area {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .side-nav {
+                flex-direction: row;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .info-box {
+                text-align: center;
+                width: 100%;
+            }
+
+            .info-list li {
+                margin:0 auto;
+                display: flex;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .back-btn {
+                top: 15px;
+                left: 15px;
+                padding: 8px 15px;
+            }
+
+            .cta-btn {
+                margin: 30px auto 0;
+            }
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes cardLoad {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
 </head>
 
 <body>
-   
-    <div id="glassbox">
-        <div id="text">
-            <h1>Inlay Lake</h1><br><br>
-            <div id="left">
-                <nav>
-                    <button onclick="showTopic(0)"> <i class="fa-solid fa-bookmark"></i></button>
-                    <button onclick="showTopic(1)"> <i class="fa-solid fa-hourglass-start"></i></button>
-                    <button onclick="showTopic(2)"><i class="fa-regular fa-clock"></i></button>
-                    <button onclick="showTopic(3)"><i class="fa-solid fa-bus-simple"></i></button>
+
+    <a href="../eachaboutpage/shan.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+    <div class="glass-card">
+        <section class="content-section">
+            <h1 class="title">Inlay Lake</h1>
+
+            <div class="interaction-area">
+                <nav class="side-nav">
+                    <button class="nav-dot active" onclick="showTopic(0, this)">
+                        <i class="fa-solid fa-bookmark" title="Attraction"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(1, this)">
+                        <i class="fa-solid fa-hourglass-start" title="History"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(2, this)">
+                        <i class="fa-regular fa-clock" title="Best Time"></i>
+                    </button>
+                    <button class="nav-dot" onclick="showTopic(3, this)">
+                        <i class="fa-solid fa-bus-simple" title="Transport"></i>
+                    </button>
                 </nav>
-                <div id="about">
-                    <h3>Attraction</h3><br>
-                    ⩥   The floating land<br>⩥   Hpaung Daw Oo Pagoda<br>⩥   The junping cat monastery(Ngaphechaung)
+
+                <div id="about" class="info-box">
+                    <div class="fade-in">
+                        <h3>Attraction</h3>
+                        <ul class="info-list">
+                            <li> The floating land and gardens</li>
+                            <li> Hpaung Daw Oo Pagoda</li>
+                            <li>The jumping cat monastery (Ngaphechaung)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <div id="img">
+            <a href="../eachservicepage/shan.html" class="cta-btn">
+                For more service <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
 
-            <img id="simg" src="../image & logo/inlay2.jpg">
-            <img id="simg" src="../image & logo/inlay3.jpg">
-            <img id="simg" src="../image & logo/inlay4.jpg">
+        <section class="image-section">
+            <div class="image-grid">
+                <img src="../image & logo/inlay2.jpg" alt="Inlay Lake View" class="grid-img">
+                <img src="../image & logo/inlay3.jpg" alt="Traditional Boat" class="grid-img">
+                <img src="../image & logo/inlay4.jpg" alt="Local Life" class="grid-img">
+                <img src="../image & logo/inlay4.jpg" alt="Local Life" class="grid-img" id="only">
+            </div>
+        </section>
+    </div>
 
-        </div>
-    </div>
-    <div class="book">
-        <a id="book" href="../eachservicepage/shan.html">For more service</a>
-    </div>
-    <a id="book" href="../eachaboutpage/shan.html" style="position: absolute;top:20px;left:20px;">Back</a>
     <script>
+        /* --- JAVASCRIPT LOGIC --- */
         const data = [
             {
-                "tropic": "<h3>Attraction</h3>",
-                "list": "⩥  The floating land<br>⩥  Hpaung Daw Oo Pagoda<br>⩥   The junping cat monastery(Ngaphechaung)"
+                "topic": "Attraction",
+                "list": "<li>The floating land and gardens</li><li>Hpaung Daw Oo Pagoda</li><li>The jumping cat monastery (Ngaphechaung)</li>"
             },
             {
-                "tropic": "<h3>History</h3>",
-                "list": "⩥   Home to the Intha people,who moved here in the 14th century developed a unique water- based lifestyle"
+                "topic": "History",
+                "list": "<li>Home to the Intha people since 14th century</li><li>Developed a unique water-based lifestyle</li><li>Famous for one-legged rowing technique</li>"
             },
             {
-                "tropic": "<h3>Best Time To Go</h3>",
-                "list": "⩥   October (for the Hpaung Daw Oo Pagoda Festival)<br>⩥    November"
+                "topic": "Best Time To Go",
+                "list": "<li>October (Hpaung Daw Oo Pagoda Festival)</li><li>November to February (Cool Season)</li><li>Pleasant weather for boat trips</li>"
             },
             {
-                "tropic": "<h3>Transportation</h3>",
-                "list": "⩥   Long-tail motorboats for lake travel <br>⩥   taxis for land travel"
-            },
-        ]
-        function showTopic(index) {
-            const p = document.getElementById('about');
+                "topic": "Transportation",
+                "list": "<li>Traditional long-tail motorboats</li><li>Private traditional canoes</li><li>Local taxis for land travel around the lake</li>"
+            }
+        ];
+
+        function showTopic(index, btn) {
+            // Update Active Button UI
+            document.querySelectorAll('.nav-dot').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update Content with Animation
+            const infoBox = document.getElementById('about');
             const item = data[index];
-            p.innerHTML = `<div class="fade-in">${item.tropic}<br>${item.list}</div>`;
+
+            infoBox.innerHTML = `
+                <div class="fade-in">
+                    <h3>${item.topic}</h3>
+                    <ul class="info-list">${item.list}</ul>
+                </div>
+            `;
         }
     </script>
 </body>

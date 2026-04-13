@@ -1,0 +1,157 @@
+#left {
+    display: flex;
+}
+h3{
+    font-size: 26px;
+    color:rgb(11, 13, 13);
+}
+nav {
+    display: grid;
+    gap: 10px;
+    margin: 0 60px 0 10px;
+}
+
+#about {
+    margin: -20px 10px 10px 0;
+    width: 400px;
+    line-height: 25px;
+    color:rgb(251, 249, 248);
+}
+
+body {
+    background-color: skyblue;
+    background: linear-gradient(165deg,rgba(172, 186, 44, 0.903) 40%,rgb(116, 109, 91) 60%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+    justify-items: center;
+    background-attachment: fixed;
+}
+
+#glassbox {
+    width: 90%;
+    height: auto;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: 5px 5px 15px rgb(12, 10, 8);
+    display: flex;
+    padding: 30px;
+    margin-top:100px;
+}
+
+#text {
+    color: rgb(14, 11, 11);
+    align-content: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+}
+
+p {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+#img {
+    margin: 20px;
+    display: flex;
+
+
+}
+#about{
+    font-size: 1.1rem;
+    color:black;
+}
+#simg {
+    width: 150px;
+    height: 250px;
+    float: right;
+    margin-right: 10px;
+    margin-top:45px;
+    box-shadow: 5px 5px 10px black;
+}
+
+
+button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgb(20, 14, 14);
+  
+}
+i {
+    color: rgb(15, 13, 13);
+      transition: 2s;
+}
+i:hover{
+     transform:rotate(360deg) ;
+}
+button:hover{
+    background: silver;
+    transform: translateY(-3px) scale(1.1);
+}
+#book{
+    background: rgb(248, 249, 250);
+    border: none;
+    border-radius: 5px;
+    padding:5px;
+    color:rgb(181, 116, 3);
+    text-decoration: none;
+    box-shadow: 5px 5px 10px black;
+}
+#book:hover{
+    transform: translateY(-3px);
+    background: skyblue;
+    box-shadow: 0 0 15px skyblue;
+    color:violet;
+}
+.book{
+    margin:-50px 10px 10px 900px;
+}
+@keyframes fadeInUp{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+        to{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+}
+    .fade-in{
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+@media(max-width:768px) {
+    #fimg {
+        width: 70px;
+        height: auto;
+        margin:100px 20px 0 -100px;
+        
+    }
+    #simg{
+        width: 40px;
+        height:auto;
+        margin:100px 0 0 -10px;
+        flex-direction: row;
+    }
+    #about{
+        font-size: 15px;
+        margin:0 10px 0 -40px; 
+    }
+    button{
+        width:25px;
+        height:25px;
+        justify-content: center;
+        justify-items: center;
+    }
+
+   
+}

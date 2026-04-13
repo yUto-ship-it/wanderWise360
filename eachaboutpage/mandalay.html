@@ -1,33 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/ptogoinner.css">
+    <title>Explore Mandalay | Myanmar</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #f39c12;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body {
+            min-height: 100vh;
+            /* Mandalay Background */
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                        url('../image & logo/mandalaya.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .back-btn {
+            position: fixed; top: 30px; left: 30px;
+            text-decoration: none; color: var(--white);
+            background: var(--glass); backdrop-filter: blur(10px);
+            padding: 12px 25px; border-radius: 50px;
+            border: 1px solid var(--glass-border); font-weight: 600;
+            transition: 0.3s; z-index: 100; display: flex; align-items: center; gap: 10px;
+        }
+
+        .back-btn:hover { background: var(--accent); transform: translateX(-5px); border-color: var(--accent); }
+
+        .main-container { width: 100%; max-width: 1200px; text-align: center; }
+
+        .hero-text { margin-bottom: 60px; color: var(--white); animation: fadeInDown 1s ease-out; }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800;
+            letter-spacing: -2px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            max-width: 750px; margin: 0 auto; font-size: 1.15rem; line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);
+            padding: 25px 35px; border-radius: 25px; border: 1px solid var(--glass-border);
+        }
+
+        .destinations-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; padding: 20px 0;
+        }
+
+        .dest-card {
+            position: relative; height: 450px; border-radius: 35px;
+            overflow: hidden; text-decoration: none; border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
+
+        .card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 15%, transparent 65%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 35px; color: var(--white); text-align: left;
+        }
+
+        .card-overlay h2 { font-size: 1.9rem; margin-bottom: 12px; transition: 0.4s; }
+
+        .card-overlay p { font-size: 0.95rem; opacity: 0; transform: translateY(20px); transition: 0.4s; color: rgba(255,255,255,0.8); }
+
+        .explore-label { margin-top: 15px; font-weight: 600; color: var(--accent); font-size: 0.9rem; opacity: 0; transition: 0.4s; display: flex; align-items: center; gap: 8px; }
+
+        .dest-card:hover { transform: translateY(-15px) scale(1.02); }
+        .dest-card:hover img { transform: scale(1.1); }
+        .dest-card:hover .card-overlay p, .dest-card:hover .explore-label { opacity: 1; transform: translateY(0); }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 3rem; }
+            .dest-card { height: 380px; }
+            .destinations-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
+<body>
 
-<body style="background: url('../image & logo/mandalaya.jpg');background-repeat: no-repeat;background-size:cover;">
-    <div id="glassbox">
-        <div id="text">
-            <h1>Mandalay Region</h1><br><br>
+    <a href="../major-page-html/home.html" class="back-btn">
+        <i class="fa-solid fa-house"></i> Home
+    </a>
+
+    <div class="main-container">
+        <header class="hero-text">
+            <h1>Mandalay Region</h1>
             <p>
-                Mandalay is the second-largest city in Myanmar and serves as the cultural heart of the nation. It was the last royal capital of the Burmese Kingdom before the British colonial era.
+                The cultural heart of Myanmar and the last royal capital. A city where 
+                ancient traditions, golden palaces, and spiritual heritage live on.
             </p>
+        </header>
+
+        <div class="destinations-grid">
+            
+            <a href="../eachplace/mandalayplace.html" class="dest-card">
+                <img src="../image & logo/pa4.jpg" alt="Mandalay Palace">
+                <div class="card-overlay">
+                    <h2>Mandalay Palace</h2>
+                    <p>The last royal residence of the Burmese monarchy, a magnificent complex surrounded by a scenic moat.</p>
+                    <span class="explore-label">Enter The Palace <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
+
+            <a href="../eachplace/bagan.html" class="dest-card">
+                <img src="../image & logo/bgan.jpg" alt="Bagan Ancient City">
+                <div class="card-overlay">
+                    <h2>Bagan</h2>
+                    <p>A UNESCO World Heritage site home to thousands of ancient temples across a mystical golden plain.</p>
+                    <span class="explore-label">Discover Ancient Bagan <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
+
+            <a href="../eachplace/mahayatmotni.html" class="dest-card">
+                <img src="../image & logo/maham1.jpg" alt="Mahamuni Buddha Temple">
+                <div class="card-overlay">
+                    <h2>Mahamuni Temple</h2>
+                    <p>One of the most sacred pilgrimage sites in Myanmar, housing the legendary highly-venerated Buddha image.</p>
+                    <span class="explore-label">Visit Sacred Site <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+            </a>
 
         </div>
-        <div id="img">
-           <a href="../eachplace/mandalayplace.html"> <img id="fimg" src="../image & logo/pa4.jpg"></a>
-            <a href="../eachplace/bagan.html"><img id="simg" src="../image & logo/bgan.jpg"></a>
-            <a href="../eachplace/mahayatmotni.html"><img id="simg" src="../image & logo/maham1.jpg"></a>
-        </div>
-
     </div>
-     <label style="top:350px;left:820px;">Mandalay Palace</label>
-     <label style="top:350px;left:1010px;">Bagan</label>
-      <label style="top:350px;left:1110px;">Mahamuni Buddha Temple</label>
-      <a id="book" href="../major-page-html/home.html" style="position: absolute;top:20px;left:20px;text-decoration: none;background: rgb(219, 145, 16);padding:5px;border-radius: 5px;">Back</a>
-</body>
 
+</body>
 </html>
