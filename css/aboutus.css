@@ -10,11 +10,170 @@ body {
     background: #e6eef7;
 }
 
+nav {
+    background: rgb(14, 128, 209);
+    color: white;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+/* Desktop Menu */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a,
+select {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: 0.3s;
+
+}
+
+#ras {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: 0.3s;
+    border: none;
+    background: rgb(14, 128, 209);
+    font-size: 1.03rem;
+    outline: none;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-right-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Desktop မှာ Search box ကို ပုံမှန်အတိုင်း ပြထားမယ် */
+#search {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    height: 35px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-search-btn {
+    display: none;
+    /* Desktop မှာ ဖျောက်ထားမယ် */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Mobile Menu Icon (Hidden on Desktop) */
+.menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
 @media (max-width:768px) {
     .section {
         flex-direction: column;
     }
 
+    nav {
+        padding: 0 20px;
+    }
+
+    .menu-icon,
+    .mobile-search-btn {
+        display: block;
+        /* Mobile မှာ Icon နှစ်ခုလုံး ပြမယ် */
+    }
+
+    /* Search Box ကို Mobile မှာ ပုံသေဖျောက်ထားပြီး class 'active' ရှိမှ ပြမယ် */
+    .search-wrapper {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgb(14, 128, 209);
+        padding: 10px;
+        display: none;
+        justify-content: center;
+        z-index: 999;
+    }
+
+    .search-wrapper.active {
+        display: flex;
+    }
+
+    #search {
+        width: 90%;
+    }
+
+
+    /* Show hamburger on mobile */
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        /* Hide side menu */
+        width: 30%;
+        height: 100vh;
+        background: rgb(14, 128, 209);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        transition: 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links a {
+        color: white;
+    }
+
+    #ras {
+        color: white;
+        background: rgb(14, 128, 209);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    #logo {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        border-radius: 50%;
+
+
+    }
 }
 
 @media (max-width:480px) {
@@ -33,6 +192,16 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+#logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: url('../image & logo/logo.png');
+    background-size: cover;
+    margin: 0px 0 0 0;
+}
+
 
 
 /* customers feedback */
@@ -141,10 +310,12 @@ img {
     margin: 20px 0;
     font-weight: bold;
 }
-.book:hover{
+
+.book:hover {
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 0 15px black;
 }
+
 .contact {
     margin-top: 40px;
     line-height: 4;
@@ -190,3 +361,9 @@ img {
     width: 100%;
     margin-top: 40px;
 }
+#logo {
+                width: 80px;
+                height: 80px;
+                overflow: hidden;
+                border-radius: 50%;
+            }

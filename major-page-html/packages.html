@@ -1,21 +1,394 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Travel Packages</title>
-<link rel="stylesheet" href="../css/packages.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderWise | Travel Packages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background: rgb(14, 128, 209);
+            color: white;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        /* Desktop Menu */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a,
+        select {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.3s;
+
+        }
+
+        #ras {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.3s;
+            border: none;
+            background: rgb(14, 128, 209);
+            font-size: 1.03rem;
+            outline: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Desktop မှာ Search box ကို ပုံမှန်အတိုင်း ပြထားမယ် */
+        #search {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            height: 35px;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-search-btn {
+            display: none;
+            /* Desktop မှာ ဖျောက်ထားမယ် */
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Mobile Menu Icon (Hidden on Desktop) */
+        .menu-icon {
+            font-size: 2rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* --- HERO --- */
+        .main {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* --- TABS --- */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            border: none;
+            padding: 12px 25px;
+            background: white;
+            color: #64748b;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tab-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* --- PACKAGES GRID --- */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 0 8% 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .why {
+            background: #0f172a;
+            color: white;
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .why h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+
+        .box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+            /* Logo ဖြူအောင်လုပ်တာ */
+        }
+
+        .item p {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Card Animation for Filtering */
+        .card.hide {
+            display: none;
+        }
+
+        .card.show {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        #logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: url('../image & logo/logo.png');
+            background-size: cover;
+            margin: 0px 0 0 0;
 
 
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .card ul {
+            list-style: none;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            padding: 15px 20px;
+            background: #f1f5f9;
+            font-weight: 800;
+            color: #2563eb;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            padding: 60px 0;
+            text-align: center;
+            background: white;
+            color: rgb(18, 21, 67);
+        }
+
+        #book-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        @media (max-width:768px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .menu-icon,
+            .mobile-search-btn {
+                display: block;
+                /* Mobile မှာ Icon နှစ်ခုလုံး ပြမယ် */
+            }
+
+            /* Search Box ကို Mobile မှာ ပုံသေဖျောက်ထားပြီး class 'active' ရှိမှ ပြမယ် */
+            .search-wrapper {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgb(14, 128, 209);
+                padding: 10px;
+                display: none;
+                justify-content: center;
+                z-index: 999;
+            }
+
+            .search-wrapper.active {
+                display: flex;
+            }
+
+            #search {
+                width: 90%;
+            }
+
+
+            /* Show hamburger on mobile */
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                /* Hide side menu */
+                width: 30%;
+                height: 100vh;
+                background: rgb(14, 128, 209);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links a {
+                color: white;
+            }
+
+            #ras {
+                color: white;
+                background: rgb(14, 128, 209);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <img src="../image & logo/logo.png" class="logo">
+    <nav>
+        <div style="display: flex;gap:0;color:white;justify-content: center;align-items: center;">
+            <div id="logo">
+            </div>
+            <h3 style="color:white;">wanderWise 360</h3>
+        </div>
+        <div class="nav-right-container">
+            <div class="search-wrapper" id="searchWrapper">
+                <form onsubmit="event.preventDefault(); findpage();"> <input type="text"
+                        placeholder="Where do you want to go?" id="search"></form>
+            </div>
 
-    <div class="nav-links">
-        <a href="home.html">Home</a>
-          <select id="ras" onchange="switchPage('ras')">
+            <div class="mobile-search-btn" onclick="toggleSearch()">
+                <i class="bi bi-search" id="searchIcon"></i>
+            </div>
+
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="bi bi-list" id="menuBtn"></i>
+            </div>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html" onclick="closeMenu()">Home</a></li>
+            <select id="ras" onchange="switchPage('ras')">
                 <option selected>Place to go</option>
                 <option value="../eachaboutpage/kachin.html">Kachin</option>
                 <option value="../eachaboutpage/kayar.html">Kayar</option>
@@ -32,95 +405,264 @@
                 <option value="../eachaboutpage/tanintharyi.html">Tanintheryi</option>
                 <option value="../eachaboutpage/sagaing.html">Sagaing</option>
             </select>
-        <a href="service.html">Services</a>
-        <a href="packages.html" class="active">Packages</a>
-        <a href="booking.html">Booking</a>
-        <a href="aboutus.html">About</a>
-    </div>
-</nav>
+            <li><a href="servicenew.html" onclick="closeMenu()">Services</a></li>
+            <li> <a href="packages.html" onclick="closeMenu()">Packages</a></li>
 
-<section class="main">
-    <h1>EXPLORE OUR TRAVEL PACKAGES</h1>
-    <p>Discover all inclusive deals for your next adventure</p>
-</section>
+            <li> <a href="aboutus.html" onclick="closeMenu()">About</a></li>
 
-<div class="tabs">
-    <a href="packages.html" class="bottom" id="active"><bottom>All Packages</bottom></a>
-    <a href="beach.html" class="bottom"><bottom>Beach Getaways</bottom></a>
-    <a href="adventure.html" class="bottom"><bottom>Adventure Tours</bottom></a>
-    <a href="culture.html"  class="bottom"><bottom>Cultural Trips</bottom></a>
-</div>
-<!-- packages -->
-<section class="packages">
-
-    <div class="card">
-        <img src="../image & logo/bagan&mandalay.jpg">
-        <h3>Bagan & Mandalay Royal Heritage</h3>
-        <ul>
-            <li>🏨 4-star Luxury Hotels</li>
-            <li>🚌 Domestic Flight & AC Car</li>
-            <li>🍽Royal Traditional Set </li>
-            <li>📜 Certified Expert Guide</li>
         </ul>
-        <div class="price">MMK 650,000</div>
+    </nav>
+
+    <section class="main">
+        <h1>TRAVEL PACKAGES</h1>
+        <p>Choose your perfect getaway</p>
+    </section>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="filterPackages('all', this)">All Packages</button>
+        <button class="tab-btn" onclick="filterPackages('beach', this)">Beach Getaways</button>
+        <button class="tab-btn" onclick="filterPackages('adventure', this)">Adventure Tours</button>
+        <button class="tab-btn" onclick="filterPackages('culture', this)">Cultural Trips</button>
     </div>
 
-    <div class="card">
-        <img src="../image & logo/chaung.jpg">
-        <h3>Chung Tha Breeze</h3>
-        <ul>
-            <li>🏨Beachfront Hotel</li>
-            <li>🚌Express Bus</li>
-            <li>🍽Local Cuisine</li>
-            <li>📜Banana Boat Ride</li>
-        </ul>
-        <div class="price">MMK 280,000</div>
-    </div>
-
-    <div class="card">
-        <img src="../image & logo/putao.jpg">
-        <h3>Putao Snow Peal</h3>
-        <ul>
-            <li>🏨Eco-Mountain Lodge</li>
-            <li>🚌Flight & Jeep</li>
-            <li>🍽Campfire Food</li>
-            <li>📜Peak Climbing</li>
-        </ul>
-        <div class="price">MMK-1,550,000</div>
-    </div>
-
-</section>
-<!-- why choose -->
-<section class="why">
-    <h2><b>Why Choose Our Packages?</b></h2>
-
-    <div class="box">
-        <div class="item">
-            <img src="../image & logo/1st.png">
-            <p>All-inclusive Deals</p>
+    <section class="packages" id="package-container">
+        <div class="card" data-category="beach">
+            <img src="../image & logo/chaung.jpg">
+            <div class="card-content">
+                <h3>Chaung Tha Breeze</h3>
+                <ul>
+                    <li>🏨 Beachfront Hotel</li>
+                    <li>🚌 Express Bus</li>
+                    <li>🍽 Local Cuisine</li>
+                    <li>📜 Banana Boat Ride</li>
+                </ul>
+            </div>
+            <div class="price">MMK 280,000</div>
+        </div>
+        <div class="card" data-category="beach">
+            <img src="../image & logo/ngapali.jpg">
+            <div class="card-content">
+                <h3>Ngapali Serenity</h3>
+                <ul>
+                    <li>🏨 5 Star Resort</li>
+                    <li>🚌 Express Bus</li>
+                    <li>🍽 Flight & Transfer</li>
+                    <li>🏂🏻 Snorkeling Trip</li>
+                </ul>
+            </div>
+            <div class="price">MMK 280,000</div>
         </div>
 
-        <div class="item">
-            <img src="../image & logo/2nd.png">
-            <p>Expert Guides</p>
+        <div class="card" data-category="culture">
+            <img src="../image & logo/pyu.jpg">
+            <div class="card-content">
+                <h3>Bagan Royal Heritage</h3>
+                <ul>
+                    <li>🏨 4-star Luxury Hotels</li>
+                    <li>📜 Certified Expert Guide</li>
+                    <li>🍽 Royal Traditional Set</li>
+                </ul>
+            </div>
+            <div class="price">MMK 650,000</div>
+        </div>
+        <div class="card" data-category="culture">
+            <img src="../image & logo/pyus.jpg">
+            <div class="card-content">
+                <h3>UNESCO Pyu City</h3>
+                <ul>
+                    <li>🏨 Riverside Hotel</li>
+                    <li>📜 Certified Expert Guide</li>
+                    <li>🍽 Royal Traditional Set</li>
+                </ul>
+            </div>
+            <div class="price">MMK 650,000</div>
+        </div>
+        <div class="card" data-category="culture">
+            <img src="../image & logo/myauk.jpg">
+            <div class="card-content">
+                <h3>Historic Mrauk-U</h3>
+                <ul>
+                    <li>🏨 Tradutuibal Lodge</li>
+                    <li>📜Ancient History</li>
+                    <li>🍽 Ethnic Cuisine</li>
+                </ul>
+            </div>
+            <div class="price">MMK 650,000</div>
         </div>
 
-        <div class="item">
-            <img src="../image & logo/3rd.png">
-            <p>Luxury Accommodations</p>
+        <div class="card" data-category="adventure">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500">
+            <div class="card-content">
+                <h3>Putao Snow Peak</h3>
+                <ul>
+                    <li>🏔 Peak Climbing</li>
+                    <li>✈️ Flight & Jeep</li>
+                    <li>🔥 Campfire Food</li>
+                </ul>
+            </div>
+            <div class="price">MMK 1,550,000</div>
+        </div>
+        <div class="card" data-category="adventure">
+            <img src="../image & logo/kalaw.jpg">
+            <div class="card-content">
+                <h3>Kalaw Trekking</h3>
+                <ul>
+
+                    <li>🏔 Peak Climbing</li>
+                    <li>🚌Walking & Train</li>
+                    <li>📜3-Day Hike Guide Food</li>
+                </ul>
+            </div>
+            <div class="price">MMK 1,550,000</div>
         </div>
 
-        <div class="item">
-            <img src="../image & logo/4th.png">
-            <p>24/7 Support</p>
+        <div class="card" data-category="adventure">
+            <img src="../image & logo/pindaya.jpg">
+            <div class="card-content">
+                <h3>Pindaya Caving</h3>
+                <ul>
+                    <li>🚌 Private AC Car</li>
+                    <li>🍽 Loacl Farm Meals</li>
+                    <li>🎄 Cave Exploration</li>
+                </ul>
+            </div>
+            <div class="price">MMK 150,000</div>
         </div>
-    </div>
-</section>
-<!-- Footer -->
-<section class="footer">
-    <h2><b>Ready to book your dream vacation?</b></h2>
-    <a id="book" href="booking.html"><bottom>BOOK NOW</bottom></a>
-</section>
-<script src="../javascript/tab.js"></script>
+
+        <div class="card" data-category="beach">
+            <img src="../image & logo/ngwe.jpg">
+            <div class="card-content">
+                <h3>Ngwe Saung Escape</h3>
+                <ul>
+                    <li>🏨 Deluxe Sea View</li>
+                    <li>✈️ Private Car</li>
+                    <li>🍽 Daily Breakfast</li>
+                    <li>🏝️Island Hopping</li>
+                </ul>
+            </div>
+            <div class="price">MMK 850,000</div>
+        </div>
+    </section>
+    <section class="why">
+        <h2>Why Choose Our Packages?</h2>
+        <div class="box">
+            <div class="item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1162/1162951.png" alt="Icon">
+                <p>All-inclusive Deals</p>
+            </div>
+            <div class="item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Icon">
+                <p>Expert Guides</p>
+            </div>
+            <div class="item">
+                <img src="https://cdn-icons-png.flaticon.com/512/2611/2611136.png" alt="Icon">
+                <p>Luxury Accommodations</p>
+            </div>
+            <div class="item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1067/1067566.png" alt="Icon">
+                <p>24/7 Support</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <h2>Explore The wonder!</h2>
+    </section>
+
+    <script>
+        function filterPackages(category, btn) {
+            // 1. Tab buttons color change
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 2. Filter Cards logic
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hide');
+                    card.classList.add('show');
+                } else {
+                    if (card.getAttribute('data-category') === category) {
+                        card.classList.remove('hide');
+                        card.classList.add('show');
+                    } else {
+                        card.classList.add('hide');
+                        card.classList.remove('show');
+                    }
+                }
+            });
+        }
+
+        function findpage() {
+            event.preventDefault();
+            // 1. စာသားယူမယ်
+            const searchElement = document.getElementById("search");
+            const originalText = searchElement.value.trim();
+            const place = originalText.toLowerCase().replace(/\s+/g, '');
+
+            if (place === "") return;
+
+            const eachaboutpage = ["yangon", "mandalay", "sagaing", "bago", "mon", "shan", "chin", "kayin", "kayar", "kachin", "ayeyarwaddy", "magway", "rakhine", "tanintharyi"];
+
+            // ngapali ကို စာလုံးပေါင်း ပြင်ထားပါတယ်
+            const eachplace = ["shwedagon", "sule", "bagan", "kandawgyi", "chaungtha", "hteepwintkanwaterfall", "inlay", "kalaw", "zwekabin", "kyaikhtiyo", "kyaukkalat", "mahayatmotni", "manaungisland", "mandalayhill", "mandalaypalace", "mawlamyine", "meinmahla", "mingun", "mrauku", "ngapali", "ngwesaung", "ngwetaungdam", "pindaya", "sadancave", "sagainghill", "setse", "soonooponenyashine", "tantkyitaung", "taungdwingyi", "taungkwepagoda", "yokesone", "rihlake", "kennedypeak", "natmataung", "kanbawzathadipalace", "moeyungyi", "shwemawdawpagoda", "myitkyina", "hkakaborazi", "indawgyi", "myeik", "nyaungoophee", "maungmaganbeach"];
+
+            let targetUrl = "";
+
+            if (eachaboutpage.includes(place)) {
+                targetUrl = "../eachaboutpage/" + place + ".html";
+            } else if (eachplace.includes(place)) {
+                targetUrl = "../eachplace/" + place + ".html";
+            }
+
+            // 2. လမ်းကြောင်းရှိမှ သွားမယ်
+            if (targetUrl !== "") {
+                window.location.href = targetUrl;
+            } else {
+                // ရှာမတွေ့မှသာ Swal ကို ပြမယ်
+                Swal.fire({
+                    title: `${originalText} ကို ရှာမတွေ့ပါ`,
+                    text: "ကျေးဇူးပြု၍ အခြားသောနေရာအား ရှာဖွေနိုင်ပါသည်။",
+                    icon: "error",
+                    confirmButtonColor: '#d4a373'
+                });
+            }
+        }
+        function toggleSearch() {
+            const searchWrapper = document.getElementById('searchWrapper');
+            const searchIcon = document.getElementById('searchIcon');
+
+            searchWrapper.classList.toggle('active');
+
+            if (searchWrapper.classList.contains('active')) {
+                searchIcon.classList.replace('bi-search', 'bi-x-lg');
+                document.getElementById('search').focus();
+            } else {
+                searchIcon.classList.replace('bi-x-lg', 'bi-search');
+            }
+        }
+
+        // Mobile Menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                menuBtn.classList.replace('bi-list', 'bi-x-lg');
+            } else {
+                menuBtn.classList.replace('bi-x-lg', 'bi-list');
+            }
+        }
+
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('menuBtn').classList.replace('bi-x-lg', 'bi-list');
+        }
+    </script>
+    <script src="../javascript/tab.js"></script>
+
 </body>
+
 </html>

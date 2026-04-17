@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking | Mandalay Royal Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/hotel.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="nav-header" id="back">
+            <a onclick="history.back()" ><button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back
+                </button></a>
+        </div>
+
+
+        <div id="selection-page">
+            <h1 class="main-title">Discover Luxury Stays</h1>
+            <div class="hotel-grid">
+                <div class="hotel-card"Mrauk Oo Princess Resort', ' Rakhine', 150000, '../image & logo/rak1.jpg')">
+                    <img src="../image & logo/rak1.jpg">
+                    <div class="card-info">
+                        <h3>Mrauk Oo Princess Resort</h3>
+                        <p><i class="fa-solid fa-location-dot"></i>  Rakhine State</p>
+                        <span class="price-tag">150,000 MMK / Night</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card"
+                    onclick="openHotel('Amazing Ngapali Resort', ' Rakhinen', 120000, '../image & logo/rak2.jpg')">
+                    <img src="../image & logo/rak2.jpg">
+                    <div class="card-info">
+                        <h3>Amazing Ngapali Resort</h3>
+                        <p><i class="fa-solid fa-location-dot"></i>  Rakhine State</p>
+                        <span class="price-tag">120,000 MMK / Night</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card"
+                    onclick="openHotel('Amata Resort & Spa, Ngapali', ' Rakhine', 250000, '../image & logo/rak3.jpg')">
+                    <img src="../image & logo/rak3.jpg">
+                    <div class="card-info">
+                        <h3>Amata Resort & Spa, Ngapali</h3>
+                        <p><i class="fa-solid fa-location-dot"></i>  Rakhine State</p>
+                        <span class="price-tag">250,000 MMK / Night</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="detail-page">
+            <div class="nav-header">
+                <button class="back-btn" onclick="closeHotel()"><i class="fa-solid fa-arrow-left"></i> Back to
+                    Selection</button>
+            </div>
+
+            <header class="hotel-hero">
+                <h1 id="h-name">Hotel Name</h1>
+                <p id="h-loc">Location Info</p>
+            </header>
+
+            <div class="tabs-wrapper">
+                <button class="tab-btn active" onclick="switchTab(event, 'overview')">Overview</button>
+                <button class="tab-btn" onclick="switchTab(event, 'facility')">Facilities</button>
+                <button class="tab-btn" onclick="switchTab(event, 'rooms')">Rooms</button>
+                <button class="tab-btn" onclick="switchTab(event, 'access')">Access</button>
+                <button class="tab-btn" onclick="switchTab(event, 'policy')">Policy</button>
+                <button class="tab-btn" onclick="switchTab(event, 'booking')">Book Now</button>
+            </div>
+
+            <div id="overview" class="tab-content active-content">
+                <img id="h-img" src=""
+                    style="width:100%; border-radius:35px; margin-bottom:30px; border:1px solid var(--border);">
+                <p
+                    style="font-size:1.1rem; color:var(--muted); line-height:1.8; text-align:center; max-width:900px; margin:auto;">
+                    With stunning coastal views, fresh seafood, and access to forgotten archaeological treasures, Rakhine's accommodations provide a unique and peaceful getaway.</p>
+            </div>
+
+            <div id="facility" class="tab-content">
+                <div class="facility-grid">
+                    <div class="f-card"><i class="fa-solid fa-swimming-pool"></i><span>Pool</span></div>
+                    <div class="f-card"><i class="fa-solid fa-wifi"></i><span>Free Wi-Fi</span></div>
+                    <div class="f-card"><i class="fa-solid fa-spa"></i><span>Spa & Massage</span></div>
+                    <div class="f-card"><i class="fa-solid fa-dumbbell"></i><span>Gym</span></div>
+                    <div class="f-card"><i class="fa-solid fa-utensils"></i><span>Restaurant</span></div>
+                    <div class="f-card"><i class="fa-solid fa-parking"></i><span>Parking</span></div>
+                </div>
+            </div>
+
+            <div id="rooms" class="tab-content">
+                <div class="room-grid">
+                    <div class="room-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=500">
+                        <h4>Standard Room</h4>
+                        <p class="price">Base Price</p>
+                    </div>
+                    <div class="room-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=500">
+                        <h4>Deluxe Sea View</h4>
+                        <p class="price">+ 50,000 MMK</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="access" class="tab-content">
+                <div class="info-card">
+                    <ul class="info-list">
+                        <li><i class="fa-solid fa-wheelchair"></i> Wheelchair accessible ramps throughout.</li>
+                        <li><i class="fa-solid fa-elevator"></i> Modern elevators to all floors.</li>
+                        <li><i class="fa-solid fa-car"></i> Valet parking assistance.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="policy" class="tab-content">
+                <div class="info-card">
+                    <ul class="info-list">
+                        <li><i class="fa-solid fa-clock"></i> Check-in: 02:00 PM | Check-out: 12:00 PM</li>
+                        <li><i class="fa-solid fa-ban-smoking"></i> Smoking is strictly prohibited in rooms.</li>
+                        <li><i class="fa-solid fa-child"></i> Children under 6 stay free.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="booking" class="tab-content">
+                <div class="booking-box">
+                    <form id="bookForm" class="form-grid">
+                        <div class="form-group full"><label>👤 Your Name</label><input type="text" id="uName"
+                                placeholder="Full Name" required></div>
+                        <div class="form-group"><label>📞 Phone</label><input type="tel" id="uPhone" placeholder="09..."
+                                required></div>
+                        <div class="form-group"><label>🆔 NRC Number</label>
+                            <div id="nrc">
+                                <div>
+                                    <select id="ras" onchange=" updateTownship()">
+                                        <option value="">Code</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                    </select>
+                                    <select id="type">
+                                        <option value="">Township</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <select id="country">
+                                        <option value="N">N</option>
+                                        <option value="m">M</option>
+                                        <option value="n">n</option>
+                                    </select>
+                                    <input type="number" min=0 placeholder="012345" id="nrc-no">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label>🛌 Room Type</label>
+                            <select id="roomAdd" onchange="calculate()">
+                                <option value="0">Standard Room</option>
+                                <option value="50000">Deluxe Sea View (+50,000 MMK)</option>
+                                <option value="120000">Executive Suite (+120,000 MMK)</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>📅 Check-In</label><input type="date" id="cin"
+                                onchange="calculate()"></div>
+                        <div class="form-group"><label>📅 Check-Out</label><input type="date" id="cout"
+                                onchange="calculate()"></div>
+
+                        <div class="full total-container">
+                            <span style="color:var(--muted); font-weight:600;">ESTIMATED TOTAL</span>
+                            <div class="total-amount" id="resTotal">0 MMK</div>
+                        </div>
+
+                        <div class="full social-btns">
+                            <button type="button" onclick="send('telegram')" class="s-btn"
+                                style="background:var(--tg);"><i class="fa-brands fa-telegram"></i> Telegram</button>
+                            <button type="button" onclick="send('viber')" class="s-btn" style="background:var(--vb);"><i
+                                    class="fa-brands fa-viber"></i> Viber</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let basePrice = 0;
+        let nights = 0, extra = 0; ras = 0;
+        const nrcData = {
+            "1": [
+                "BaMaNa", "KhaHpaNa", "DaHpaYa", "HaPaNa", "HpaKaNa", "AhGaYa", "KaMaTa", "KaPaTa", "KhaLaHpa", "LaGaNa", "MaKhaBa", "MaSaNa", "MaKaTa", "MaNyaNa", "MaMaNa", "MaKaNa", "MaLaNa", "NaMaNa", "PaWaNa", "PaNaDa", "PaTaAh", "SaDaNa", "YaBaYa", "YaKaNa", "SaBaNa", "SaPaYa", "TaNaNa", "TaSaLa", "WaMaNa"
+            ],
+            "2": [
+                "BaLaKha", "DaMaSa", "HpaSaNa", "HpaYaSa", "LaKaNa", "MaSaNa", "YaTaNa", "YaThaNa"
+            ],
+            "3": [
+                "BaGaLa", "LaBaNa", "BaAhNa", "HpaPaNa", "BaThaSa", "KaMaMa", "KaKaYa", "KaDaNa", "KaSaKa", "KaDaTa", "LaThaNa", "MaWaTa", "PaKaNa", "YaYaTha", "SaKaLa", "ThaTaNa", "ThaTaKa", "WaLaMa"
+            ],
+            "4": [
+                "KaKhana", "HpaLaNa", "HaKhaNa", "KaPaLa", "MaTaPa", "MaTaNa", "PaLaWa", "YaZaNa", "YaKhaDa", "SaMaNa", "TaTaNa", "HtaTaLa", "TaZaNa"
+            ],
+            "5": [
+                "AhYaTa", "BaMaNa", "BaTaLa", "KhaOuTa", "KhaTaNa", "HaMaLa", "AhTaNa", "KaLaHta", "KaLaWa", "KaBaLa", "KaNaNa", "KaThaNa", "KaLaTa", "KhaOuNa", "KaLaNa", "LaHaNa", "LaYaNa", "MaLaNa", "MaKaNa", "MaYaNa", "MaMaNa", "MaMaTa", "NaYaNa", "NgaZaNa", "PaLaNa", "HpaPaNa", "PaLaBa", "SaKaNa", "SaLaKa", "YaBaNa", "DaPaYa", "TaMaNa", "TaSaNa", "HtaKhaNa", "WaLaNa", "WaThaNa", "YaOuNa", "YaMaPa", "KaMaNa", "KhaPaNa"
+            ],
+            "6": [
+                "BaPaNa", "HtaWaNa", "KaLaAh", "KaThaNa", "KaSaNa", "LaLaNa", "MaMaNa", "PaLaNa", "TaThaYa", "ThaYaKha", "YaHpaNa", "KhaMaNa", "MaTaNa", "PaLaTa", "KaYaYa"
+            ],
+            "7": [
+                "DaOuNa", "KaPaKa", "KaWaNa", "KaKaNa", "KaTaKha", "LaPaTa", "MaLaNa", "MaNyaNa", "NaTaLa", "NyaLaPa", "AhHpaNa", "AhTaNa", "PaTaNa", "PaKhaTa", "PaKhaNa", "PaTaTa", "PaNaKa", "HpaMaNa", "PaMaNa", "YaTaNa", "YaKaNa", "HtaTaPa", "TaNgaNa", "ThaNaPa", "ThaWaTa", "ThaSaNa", "WaMaNa", "YaTaYa", "ZaKaNa", "PaTaSa"
+            ],
+            "8": [
+                "AhLaNa", "KhaMaNa", "GaGaNa", "KaMaNa", "MaKaNa", "MaBaNa", "MaTaNa", "MaLaNa", "MaMaNa", "MaHtana", "MaThaNa", "NaMaNa", "NgaHpaNa", "PaKhaKa", "PaMaNa", "PaHpaNa", "SaLaNa", "SaMaNa", "SaHpaNa", "SaTaYa", "SaPaWa", "TaTaKa", "ThaYaNa", "HtaLaNa", "YaNaKha", "YaSaKa", "KaHtaNa"
+            ],
+            "9": [
+                "AhMaYa", "AhMaZa", "KhaAhZa", "KhaMaSa", "KaPaTa", "KaSaNa", "MaTaYa", "MaHaMa", "MaLaNa", "MaHtaLa", "MaKaNa", "MaKhaNa", "MaThaNa", "NaHtaKa", "NgaThaYa", "NgaZaNa", "NyaOuNa", "PaThaKa", "PaBaNa", "PaKaKha", "PaOuLa", "SaKaNa", "SaKaTa", "ThaPaKa", "TaTaOu", "TaThaNa", "ThaSaNa", "WaTaNa", "YaMaTha", "TaKaTa", "MaMaNa", "DaKhaTa", "LaWaNa", "OuTaTha", "PaBaTha", "PaMaNa", "TaKaNa", "ZaBaTha", "ZaYaTha"
+            ],
+            "10": [
+                "BaLaNa", "KhaSaNa", "KhaZaNa", "KaMaYa", "KaHtaNa", "LaMaNa", "MaLaMa", "MaDaNa", "PaMaNa", "ThaHpaYa", "ThaHtaNa", "YaMaNa"
+            ],
+            "11": [
+                "AhMaNa", "BaThaTa", "GaMaNa", "KaHpaNa", "KaTaNa", "MaAhTa", "MaTaNa", "MaPaNa", "MaAhNa", "MaOuNa", "MaPaTa", "PaTaNa", "PaNaTa", "YaBaNa", "YaThaTa", "SaTaNa", "ThaTaNa", "TaKaNa", "KaTaLa", "TaPaWa", "BaTaHta"
+            ],
+            "12": [
+                "AhLaNa", "BaHaNa", "KaKaKa", "DaGaYa", "DaGaMa", "DaGaSa", "DaGaTa", "DaGaNa", "DaLaNa", "DaPaNa", "LaThaYa", "LaMaNa", "LaKaNa", "MaBaNa", "HtaTaPa", "AhSaNa", "KaMaYa", "KaMaNa", "KhaYaNa", "KaKhaKa", "KaTaTa", "KaTaNa", "KaMaTa", "LaMaTa", "LaThaNa", "MaYaKa", "MaGaDa", "MaGaTa", "OuKaMa", "PaBaTa", "PaZaTa", "SaKhaNa", "SaKaKha", "SaKaNa", "YaPaTha", "OuKaTa", "TaTaHta", "TaKaNa", "TaMaNa", "ThaKaTa", "ThaLaNa", "ThaGaKa", "ThaKhaNa", "TaTaNa", "YaKaNa", "OuKaNa"
+            ],
+            "13": [
+                "AhKhaNa", "KhaYaHa", "KhaMaNa", "HaTaNa", "HaPaNa", "HaPaTa", "SaHpana", "ThaNaNa",
+                "SaSaNa", "ThaPaNa", "KaLaHpa", "KaLaNa", "KaLaDa", "KaMaSa", "KaTaNa", "KaYaNa",
+                "KaTaTa", "KaHaNa", "KaLaTa", "KaKhaNa", "KaMaNa", "KaTaLa", "KaThaNa", "LaKhaNa",
+                "LaKhaTa", "LaYaNa", "LaKaNa", "LaHaNa", "LaLaNa", "MaBaNa", "MaMaSa", "MaTaNa",
+                "MaTaTa", "MaMaNa", "MaHpaNa", "MaKaNa", "MaPaNa", "MaSaNa", "MaYaNa", "MaKhaNa",
+                "MaLaNa", "MaMaTa", "MaNaNa", "MaYaTa", "MaSaTa", "NaKhaWa", "NaTaNa", "NaKhaNa",
+                "NaMaTa", "NaHpaNa", "NaSaNa", "NaKaNa", "NaWaNa", "NaPhaNa", "NyaYaNa", "PaKhaNa",
+                "PaYaNa", "PaSaNa", "PaWaNa", "HpaKhaNa", "PaTaYa", "PaLaNa", "TaKhaLa", "TaYaNa",
+                "TaKaNa", "YaLaNa", "YaSaNa", "YaHpaNa", "YaNgaNa", "NaTaYa", "PaLaTa", "KhaLaNa",
+                "MaHaYa", "PaPaKa", "TaMaNya", "MaBaTa", "MaNgaNa", "AhTaNa", "TaLaNa"
+            ],
+            "14": [
+                "AhMaTa", "BaKaLa", "DaNaHpa", "DaDaYa", "AhMaNa", "HaKaKa", "HaThaTa", "AhGaPa",
+                "KaKaHta", "KaLaNa", "KaKhaNa", "KaKaNa", "KaPaNa", "LaPaTa", "LaMaNa", "MaAhPa",
+                "MaMaKa", "MaAhNa", "MaMaNa", "NgaPaTa", "NgaThaKha", "Ngayaka", "NgaSaNa", "NgaThaYa",
+                "NyaTaNa", "PaTaNa", "PaThaNa", "HpaPaNa", "PaSaLa", "YaThaYa", "ThaPaNa", "WaKhaMa",
+                "YaKaNa", "ZaLaNa"
+            ]
+        };
+        function updateTownship() {
+            let ras = document.getElementById('ras').value;
+            let town = document.getElementById('type');
+            town.innerHTML = '<option value="">Township</option>';
+            if (ras && nrcData[ras]) {
+                nrcData[ras].forEach(ts => {
+                    let opt = document.createElement("option");
+                    opt.value = ts;
+                    opt.text = ts;
+                    town.add(opt);
+                });
+            }
+        }
+        function openHotel(name, loc, price, img) {
+            basePrice = price;
+            document.getElementById('selection-page').style.display = 'none';
+            document.getElementById('detail-page').style.display = 'block';
+
+            document.getElementById('h-name').innerText = name;
+            document.getElementById('h-loc').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${loc}, Myanmar`;
+            document.getElementById('h-img').src = img;
+            document.getElementById('back').style.display = 'none';
+
+            // Reset form
+            document.getElementById('bookForm').reset();
+            document.getElementById('resTotal').innerText = "0 MMK";
+            window.scrollTo(0, 0);
+        }
+
+        function closeHotel() {
+            document.getElementById('detail-page').style.display = 'none';
+            document.getElementById('selection-page').style.display = 'block';
+            document.getElementById('back').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function switchTab(evt, tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active-content'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active-content');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function calculate() {
+            extra = parseInt(document.getElementById('roomAdd').value);
+            const d1 = new Date(document.getElementById('cin').value);
+            const d2 = new Date(document.getElementById('cout').value);
+
+            if (d1 && d2 && d2 > d1) {
+                nights = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
+                const total = (basePrice + extra) * nights;
+                document.getElementById('resTotal').innerText = total.toLocaleString() + " MMK";
+            }
+        }
+
+        function send(platform) {
+            const name = document.getElementById('uName').value;
+            const hotel = document.getElementById('h-name').innerText;
+            const total = document.getElementById('resTotal').innerText;
+            const phone = document.getElementById('uPhone').value;
+            const coun = document.getElementById('country').value;
+            const nrc = document.getElementById('nrc-no').value;
+
+
+            if (extra = 0) {
+                type = "Standard Room";
+            } else if (extra = 50000) {
+                type = "Deluxe Sea View ";
+            } else {
+                type = "Executive Suite ";
+            }
+            if (!name || total === "0 MMK") return alert("Please fill all details correctly.");
+
+            const msg = encodeURIComponent(`🏨 *HOTEL BOOKING*\nHotel: ${hotel}\n🙎🏻‍♂️Name: ${name}\n📞Phone: ${phone}\n⏳Duration: ${nights}Nights\n🆔NRC: ${document.getElementById('ras').value}/${document.getElementById('type').value}(${coun})${nrc}\nRoom Type: ${type}\nTotal: ${total}`);
+            if (platform === 'telegram') window.open(`https://t.me/mandalay_bot?text=${msg}`);
+            else window.open(`viber://pa?chatURI=&text=${msg}`);
+        }
+    </script>
+</body>
+
+</html>

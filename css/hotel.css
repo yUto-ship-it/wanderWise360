@@ -1,0 +1,425 @@
+ :root {
+            --bg: #0f0d0b;
+            --card: #1a1612;
+            --gold: #c5a059;
+            --white: #ffffff;
+            --muted: #a38f85;
+            --input-bg: #241e1a;
+            --border: #3d332c;
+            --tg: #0088cc;
+            --vb: #7360f2;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* --- Section 1: Selection Page --- */
+        #selection-page {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .main-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .hotel-card {
+            background: var(--card);
+            border-radius: 35px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+        }
+
+        .hotel-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .card-info p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card-info .price-tag {
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        /* --- Section 2: Detail Show Page --- */
+        #detail-page {
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+
+        .nav-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: sticky;
+            top: 3%;
+        }
+
+        a {
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .back-btn {
+            background: var(--card);
+            color: var(--white);
+            border: 1px solid var(--border);
+            padding: 12px 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hotel-hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hotel-hero h1 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .hotel-hero p {
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        /* --- Advanced Tabs --- */
+        .tabs-wrapper {
+            background: var(--card);
+            padding: 8px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .tabs-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            padding: 14px 24px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 16px;
+            transition: var(--transition);
+            white-space: nowrap;
+            flex: 1;
+        }
+
+        .tab-btn.active {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .active-content {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* --- Facility Grid (Clean Pattern) --- */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .f-card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .f-card:hover {
+            border-color: var(--gold);
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .f-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .f-card span {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* --- Rooms Grid --- */
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .room-card {
+            background: var(--card);
+            border-radius: 25px;
+            padding: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .room-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .room-card .price {
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        /* --- Booking Form --- */
+        .booking-box {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 35px;
+            border: 1px solid var(--border);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .full {
+            grid-column: span 2;
+        }
+
+        label {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 16px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            background: var(--input-bg);
+            color: var(--white);
+            outline: none;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color: var(--gold);
+        }
+
+        .total-container {
+            background: rgba(197, 160, 89, 0.04);
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px dashed var(--gold);
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .total-amount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .social-btns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .s-btn {
+            padding: 18px;
+            border-radius: 18px;
+            border: none;
+            font-weight: 800;
+            cursor: pointer;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .s-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        /* --- Info Cards --- */
+        .info-card {
+            background: var(--card);
+            padding: 35px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+
+        .info-list li i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        #nrc {
+            display: grid;
+            gap: 10px;
+        }
+
+        #ras,
+        #type,
+        #country,
+        #nrc-no {
+            width: 40%;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hotel-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-grid,
+            .social-btns {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: span 1;
+            }
+        }

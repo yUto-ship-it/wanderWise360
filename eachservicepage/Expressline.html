@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myanmar Express Bus Lines</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FFD700;
+            /* Golden for Premium feeling */
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --bg: #0f0d0b;
+            --card: #1a1612;
+            --gold: #c5a059;
+            --white: #ffffff;
+            --muted: #a38f85;
+            --input-bg: #241e1a;
+            --border: #3d332c;
+            --tg: #0088cc;
+            --vb: #7360f2;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 50px 5%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .header h1 span {
+            color: var(--primary);
+        }
+
+        .bus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bus-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bus-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary);
+        }
+
+        .bus-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 25px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .features li {
+            margin: 5px 0;
+        }
+
+        .features i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        .visit-btn {
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: block;
+        }
+
+        .visit-btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        #carImg {
+            background-size: cover;
+            background-repeat: no-repeat;
+            border: 3px solid var(--primary);
+            margin-bottom: 3px;
+        }
+
+        #carImg:hover {
+            transform: scale(1.01);
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            color: gray;
+            outline: none;
+            width: 50%;
+            font-weight: bolder;
+        }
+
+        .nav-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: sticky;
+            top: 3%;
+        }
+
+        .back-btn {
+            background: var(--card);
+            color: var(--white);
+            border: 1px solid var(--border);
+            padding: 12px 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateX(-5px);
+        }
+
+        input:focus {
+            border: 3px solid var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-header">
+        <a onclick="history.back()" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <div class="header">
+        <h1>Myanmar <span>Express Lines</span></h1>
+        <p>အကောင်းဆုံး ယာဉ်လိုင်းများကို တစ်နေရာတည်းတွင် ကြည့်ရှုနိုင်ပါသည်</p>
+    </div>
+
+
+    <div class="bus-grid">
+        <div class="bus-card">
+
+            <img src="../image & logo/jja.png" id="carImg">
+            <div>
+                <div class="logo-placeholder"><i class="fas fa-bus"></i></div>
+                <h3 class="bus-name">JJ Express</h3>
+                <ul class="features">
+                    <li><i class="fas fa-star"></i> First Class Service</li>
+                    <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                    <li><i class="fas fa-coffee"></i> Snack & Drinks</li>
+                </ul>
+            </div>
+            <a href="https://www.jjexpress.net/" target="_blank" class="visit-btn">Official Website</a>
+        </div>
+        <div class="bus-card">
+            <img src="../image & logo/myat.jpg" id="carImg">
+            <div>
+                <div class="logo-placeholder"><i class="fas fa-road"></i></div>
+                <h3 class="bus-name">Myat Mandalar Tun</h3>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Reliable Service</li>
+                    <li><i class="fas fa-user-tie"></i> Professional Crew</li>
+                    <li><i class="fas fa-bolt"></i> Express Booking</li>
+                </ul>
+            </div>
+            <a href="https://myatmandalartun.com/" target="_blank" class="visit-btn">Official Website</a>
+        </div>
+
+
+
+        <div class="bus-card">
+            <img src="../image & logo/highclass.jpg" id="carImg">
+            <div>
+                <div class="logo-placeholder"><i class="fas fa-crown"></i></div>
+                <h3 class="bus-name">High Class</h3>
+                <ul class="features">
+                    <li><i class="fas fa-tv"></i> Personal TV</li>
+                    <li><i class="fas fa-couch"></i> 2+1 Seating</li>
+                    <li><i class="fas fa-clock"></i> On-time Departure</li>
+                </ul>
+            </div>
+            <a href="https://www.highclassexpress.com/" target="_blank" class="visit-btn">Official Website</a>
+        </div>
+
+        <div class="bus-card">
+            <img src="../image & logo/Elite.jpg" id="carImg">
+            <div>
+                <div class="logo-placeholder"><i class="fas fa-bus-alt"></i></div>
+                <h3 class="bus-name">Elite Express</h3>
+                <ul class="features">
+                    <li><i class="fas fa-shield-alt"></i> Safety First</li>
+                    <li><i class="fas fa-chair"></i> Comfortable Seats</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Multi-Routes</li>
+                </ul>
+            </div>
+            <a href="https://www.eliteexpressmyanmar.com/en/" target="_blank" class="visit-btn">Official Website</a>
+        </div>
+        <div class="bus-card">
+            <img src="../image & logo/mandalar.jpg" id="carImg">
+            <div>
+                <div class="logo-placeholder"><i class="fas fa-road"></i></div>
+                <h3 class="bus-name">Mandalar Minn </h3>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Reliable Service</li>
+                    <li><i class="fas fa-user-tie"></i> Professional Crew</li>
+                    <li><i class="fas fa-bolt"></i> Express Booking</li>
+                </ul>
+            </div>
+            <a href="https://mandalarminn.com.mm/" target="_blank" class="visit-btn">Official Website</a>
+        </div>
+        <div class="bus-card">
+            <img src="../image & logo/famous.jpg" id="carImg">
+            <div>
+                <div class="logo-placeholder"><i class="fas fa-road"></i></div>
+                <h3 class="bus-name">Famous</h3>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Reliable Service</li>
+                    <li><i class="fas fa-user-tie"></i> Professional Crew</li>
+                    <li><i class="fas fa-bolt"></i> Express Booking</li>
+                </ul>
+            </div>
+            <a href="https://famoustravellerinternational.com/" target="_blank" class="visit-btn">Official Website</a>
+        </div>
+    </div>
+</body>
+
+</html>

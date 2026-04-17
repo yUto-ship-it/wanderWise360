@@ -6,10 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customers' Satisfactions</title>
     <link rel="stylesheet" href="../css/aboutus.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
     <!-- customers feedback -->
+    <nav>
+        <div style="display: flex;gap:0;color:white;justify-content: center;align-items: center;">
+            <div id="logo">
+            </div>
+            <h3 style="color:white;">wanderWise 360</h3>
+        </div>
+        <div class="nav-right-container">
+            <div class="search-wrapper" id="searchWrapper">
+                <form onsubmit="event.preventDefault(); findpage();"> <input type="text"
+                        placeholder="Where do you want to go?" id="search"></form>
+            </div>
+
+            <div class="mobile-search-btn" onclick="toggleSearch()">
+                <i class="bi bi-search" id="searchIcon"></i>
+            </div>
+
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="bi bi-list" id="menuBtn"></i>
+            </div>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html" onclick="closeMenu()">Home</a></li>
+            <select id="ras" onchange="switchPage('ras')">
+                <option selected>Place to go</option>
+                <option value="../eachaboutpage/kachin.html">Kachin</option>
+                <option value="../eachaboutpage/kayar.html">Kayar</option>
+                <option value="../eachaboutpage/Kayin.html">Kayin</option>
+                <option value="../eachaboutpage/chin.html">Chin</option>
+                <option value="../eachaboutpage/mon.html">Mon</option>
+                <option value="../eachaboutpage/rakhine.html">Rakhine</option>
+                <option value="../eachaboutpage/shan.html">Shan</option>
+                <option value="../eachaboutpage/yangon.html">Yangon</option>
+                <option value="../eachaboutpage/mandalay.html">Mandalay</option>
+                <option value="../eachaboutpage/bago.html">Bago</option>
+                <option value="../eachaboutpage/magway.html">Magway</option>
+                <option value="../eachaboutpage/ayeyarwaddy.html">Ayeyarwaddy</option>
+                <option value="../eachaboutpage/tanintharyi.html">Tanintheryi</option>
+                <option value="../eachaboutpage/sagaing.html">Sagaing</option>
+            </select>
+            <li><a href="servicenew.html" onclick="closeMenu()">Services</a></li>
+            <li> <a href="packages.html" onclick="closeMenu()">Packages</a></li>
+
+            <li> <a href="aboutus.html" onclick="closeMenu()">About</a></li>
+
+        </ul>
+    </nav>
 
     <section class="feedback">
         <h1>Our Customers' Satisfactions <span>💙</span></h1>
@@ -104,6 +159,74 @@
         </div>
 
     </section>
+    <script>
+        function findpage() {
+            event.preventDefault();
+            // 1. စာသားယူမယ်
+            const searchElement = document.getElementById("search");
+            const originalText = searchElement.value.trim();
+            const place = originalText.toLowerCase().replace(/\s+/g, '');
+
+            if (place === "") return;
+
+            const eachaboutpage = ["yangon", "mandalay", "sagaing", "bago", "mon", "shan", "chin", "kayin", "kayar", "kachin", "ayeyarwaddy", "magway", "rakhine", "tanintharyi"];
+
+            // ngapali ကို စာလုံးပေါင်း ပြင်ထားပါတယ်
+            const eachplace = ["shwedagon", "sule", "bagan", "kandawgyi", "chaungtha", "hteepwintkanwaterfall", "inlay", "kalaw", "zwekabin", "kyaikhtiyo", "kyaukkalat", "mahayatmotni", "manaungisland", "mandalayhill", "mandalaypalace", "mawlamyine", "meinmahla", "mingun", "mrauku", "ngapali", "ngwesaung", "ngwetaungdam", "pindaya", "sadancave", "sagainghill", "setse", "soonooponenyashine", "tantkyitaung", "taungdwingyi", "taungkwepagoda", "yokesone", "rihlake", "kennedypeak", "natmataung", "kanbawzathadipalace", "moeyungyi", "shwemawdawpagoda", "myitkyina", "hkakaborazi", "indawgyi", "myeik", "nyaungoophee", "maungmaganbeach"];
+
+            let targetUrl = "";
+
+            if (eachaboutpage.includes(place)) {
+                targetUrl = "../eachaboutpage/" + place + ".html";
+            } else if (eachplace.includes(place)) {
+                targetUrl = "../eachplace/" + place + ".html";
+            }
+
+            // 2. လမ်းကြောင်းရှိမှ သွားမယ်
+            if (targetUrl !== "") {
+                window.location.href = targetUrl;
+            } else {
+                // ရှာမတွေ့မှသာ Swal ကို ပြမယ်
+                Swal.fire({
+                    title: `${originalText} ကို ရှာမတွေ့ပါ`,
+                    text: "ကျေးဇူးပြု၍ အခြားသောနေရာအား ရှာဖွေနိုင်ပါသည်။",
+                    icon: "error",
+                    confirmButtonColor: '#d4a373'
+                });
+            }
+        }
+        function toggleSearch() {
+            const searchWrapper = document.getElementById('searchWrapper');
+            const searchIcon = document.getElementById('searchIcon');
+
+            searchWrapper.classList.toggle('active');
+
+            if (searchWrapper.classList.contains('active')) {
+                searchIcon.classList.replace('bi-search', 'bi-x-lg');
+                document.getElementById('search').focus();
+            } else {
+                searchIcon.classList.replace('bi-x-lg', 'bi-search');
+            }
+        }
+
+        // Mobile Menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                menuBtn.classList.replace('bi-list', 'bi-x-lg');
+            } else {
+                menuBtn.classList.replace('bi-x-lg', 'bi-list');
+            }
+        }
+
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('menuBtn').classList.replace('bi-x-lg', 'bi-list');
+        }
+    </script>
+    <script src="../javascript/tab.js"></script>
 </body>
 
 </html>

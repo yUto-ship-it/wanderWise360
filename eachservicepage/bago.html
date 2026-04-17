@@ -1,79 +1,95 @@
 <!DOCTYPE html>
-<html lang="my">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Services - Hotels & Transportation</title>
-    <link rel="stylesheet" href="../css/eachservice.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Travel Services | Secure Booking</title>
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/newservice.css">
+    
 </head>
 
 <body>
 
-    <header>
-        <h1>The Best Travel Services For Bago</h1>
-        <p>Best Hotels & Comfort Transportation</p>
-    </header>
-
     <div class="container">
+        <div class="nav-header" id="back">
+            <a onclick="history.back()" ><button class="back-btn"><i class="fa-solid fa-arrow-left"></i>
+                    Back
+                </button></a>
+        </div>
 
-        <h2>🏨 Popular Hotels</h2>
-        <div class="grid">
-            <div class="eachimage">
-                <img src="../image & logo/bago1.jpg">
-                <p>Han Thar Gardens Resort<br>Near Hanthawaddy Golf Course,Bago</p>
+        <h2 style="text-align:center; color:#0a192f; margin-bottom: 0.5rem;">✨ Premium Travel Services in Bago ✨</h2>
+        <p style="text-align:center; margin-bottom: 2rem; font-weight:500;">Secure booking • Instant confirmation •
+            Best price guarantee</p>
 
-                <p>120000-150000MMK per day<span class="book"><a href="../major-page-html/bookingform.html">Book Now</a></span></p>
+        <div class="services-grid">
+            <!-- HOTEL CARD -->
+            <div class="service-card" data-service="Hotel">
+                <div class="card-icon"><i class="fas fa-hotel" style="color:#2c3e66;"></i></div>
+                <h2>Hotel</h2>
+                <div class="service-desc">Luxury & budget stays, verified reviews, free cancellation included.</div>
+                <div class="price-tag">from 120000 Ks<span style="font-size: 0.9rem;">/night</span></div>
+                <a href="../hotel/bagohotel.html" id="btn"><button class="book-btn" data-name="Hotel"><i
+                            class="fas fa-bed"></i> Book Hotel</button></a>
             </div>
 
-            <div class="eachimage">
-                <img src="../image & logo/bago2.jpg">
-                <p>Kanbawza Hinthar Hotel<br>No. 2, Museum Road,Bago<br></p>
-
-                <p>75000-100000MMK per day<span class="book"><a href="../major-page-html/bookingform.html">Book Now</a></span></p>
+            <!-- TRANSPORTATION CARD -->
+            <div class="service-card" data-service="Transportation">
+                <div class="card-icon"><i class="fas fa-car-side" style="color:#e67e22;"></i></div>
+                <h2>Transportation</h2>
+                <div class="service-desc">Airport transfers, private taxis, bus & train bookings — all secure.</div>
+                <div class="price-tag">from 10000 Ks<span style="font-size: 0.9rem;">/ride</span></div>
+                <a href="../hotel/taxi.html" id="btn"><button class="book-btn" data-name="Transportation"><i
+                            class="fas fa-bus"></i> Book Ride</button></a>
             </div>
 
-            <div class="eachimage">
-                <img src="../image & logo/bago3.jpg">
-                <p>KMA Shwe Pyi Bago Resort<br>Yangon-Bago Road, Bago</p>
-
-                <p>90000-120000MMK per day<span class="book"><a href="../major-page-html/bookingform.html">Book Now</a></span></p>
+            <!-- EXPRESS CARD (Courier / Priority) -->
+            <div class="service-card" data-service="Express">
+                <div class="card-icon"><i class="fas fa-rocket" style="color:#e84118;"></i></div>
+                <h2>Express</h2>
+                <div class="service-desc">Same-day document delivery, priority travel pass, VIP fast lane.</div>
+                <div class="price-tag">from 20000 Ks<span style="font-size: 0.9rem;">/express</span></div>
+                <a href="Expressline.html" id="btn"><button class="book-btn" data-name="Express"><i
+                            class="fas fa-bolt"></i> Find Express</button></a>
             </div>
         </div>
 
-        <h2>🚗Transportation Services</h2>
-        <div class="grid">
-             <div class="eachimage">
-                <img src="../image & logo/Elite.jpg">
-                <p>Elite Express<br>Mandalay-Bago<br>
-                    Duration: 16 hr<span style="margin-left:20px">Range: 372km</span></p>
-
-                <p>38000MMK<span class="book"><a href="../major-page-html/elite.html">Book Now</a></span></p>
-            </div>
-
-            <div class="eachimage">
-                <img src="../image & logo/jj.jpg">
-                <p>JJ Express<br>Bago-Mandalay<br>
-                    Duration: 16 hr<span style="margin-left:20px">Range: 372km</span></p>
-
-                <p>33000MMK<span class="book"><a href="../major-page-html/jj.html">Book Now</a></span></p>
-            </div>
-
-            <div class="eachimage">
-                <img src="../image & logo/shwe.jpg">
-                <p>Shwe Sin Set Kyar<br>Yangon-Bago<br>
-                    Duration: 6 hr<span style="margin-left:20px">Range: 272km</span></p>
-
-                <p>12000MMK<span class="book"><a href="../major-page-html/shwe.html">Book Now</a></span></p>
-            </div>
+        <!-- Secure additional features: PCI, Data encryption, 2FA note -->
+        <div class="secure-footer">
+            <span><i class="fas fa-check-circle"></i> PCI Compliant</span>
+            <span><i class="fas fa-database"></i> Encrypted Data</span>
+            <span><i class="fas fa-mobile-alt"></i> 2FA Optional</span>
+            <span><i class="fas fa-headset"></i> 24/7 Secure Support</span>
+            <span><i class="fas fa-credit-card"></i> Apple Pay / Google Pay</span>
         </div>
-
     </div>
 
-    <footer>
-        <p>&copy; 2026 Travel Guide Service. All rights reserved.</p>
-    </footer>
+    <!-- JavaScript for interactive selection (Booking demo) -->
+    <script>
+        // Add click event to each booking button
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // get service name from data-name attribute
+                let service = btn.getAttribute('data-name');
+                if (!service) {
+                    // fallback: get parent card h2 text
+                    const parentCard = btn.closest('.service-card');
+                    const titleElem = parentCard?.querySelector('h2');
+                    service = titleElem ? titleElem.innerText : 'Service';
+                }
+                // show secure toast message
+                showToast(service);
+                // optional: console log for extra security simulation
+                console.log(`🔒 Secure booking request: ${service} | Timestamp: ${new Date().toISOString()}`);
+            });
+        });
+    </script>
 
+    <!-- Additional security note: CSRF tokens would be added for real backend, but for UI demo, all frontend security badges shown -->
+</body>
 </body>
 
 </html>

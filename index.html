@@ -4,11 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Myanmar Travel Highlights</title>
+    <title>wanderWise 360</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     <style>
         :root {
@@ -26,7 +30,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(90deg, rgb(212, 134, 61), rgba(225, 188, 87, 0.59));
+            background: linear-gradient(45deg, rgb(27, 201, 213), rgba(225, 188, 87, 0.59));
             color: #333;
             overflow-x: hidden;
             padding: 0;
@@ -40,7 +44,7 @@
         }
 
         nav {
-            background: rgb(233, 116, 48);
+            background: rgb(14, 128, 209);
             color: white;
             padding: 0 50px;
             display: flex;
@@ -71,6 +75,7 @@
             text-decoration: none;
             font-weight: 400;
             transition: 0.3s;
+
         }
 
         #ras {
@@ -79,8 +84,9 @@
             font-weight: 400;
             transition: 0.3s;
             border: none;
-            background: rgb(233, 116, 48);
-            font-size: 1rem;
+            background: rgb(14, 128, 209);
+            font-size: 1.03rem;
+            outline: none;
         }
 
         .nav-links a:hover {
@@ -265,7 +271,7 @@
             border-radius: 50%;
             background: url('image & logo/logo.png');
             background-size: cover;
-            margin: 20px 0 0 0;
+            margin: 0px 0 0 0;
 
 
         }
@@ -415,6 +421,18 @@
             text-decoration: none;
         }
 
+        #act {
+            border: 1px solid rgb(231, 234, 240);
+            color: rgb(66, 33, 173);
+            border-radius: 5px;
+            padding: 3px;
+            background: rgb(244, 241, 241);
+        }
+
+        #act a {
+            color: blue;
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             h2 {
@@ -446,7 +464,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: rgb(233, 116, 48);
+                background: rgb(14, 128, 209);
                 padding: 10px;
                 display: none;
                 justify-content: center;
@@ -471,7 +489,7 @@
                 /* Hide side menu */
                 width: 30%;
                 height: 100vh;
-                background: rgb(207, 145, 11);
+                background: rgb(14, 128, 209);
                 flex-direction: column;
                 align-items: center;
                 padding-top: 50px;
@@ -480,12 +498,12 @@
             }
 
             .nav-links a {
-                color: blue;
+                color: white;
             }
 
             #ras {
-                color: blue;
-                background: transparent;
+                color: white;
+                background: rgb(14, 128, 209);
             }
 
             .nav-links.active {
@@ -498,23 +516,26 @@
                 overflow: hidden;
                 border-radius: 50%;
             }
-            header{
-                height:40vh;
+
+            header {
+                height: 40vh;
             }
 
             header h1 {
                 font-size: 1rem;
             }
+
             header h3 {
                 font-size: 0.8rem;
-                margin:0 auto;
+                margin: 0 auto;
             }
 
             section h1 {
                 font-size: 1.5rem;
             }
-            button{
-                padding:10px 15px;
+
+            button {
+                padding: 10px 15px;
                 border-radius: 15px;
             }
 
@@ -552,7 +573,10 @@
 
 <body>
     <nav>
-        <div id="logo">
+        <div style="display: flex;gap:0;color:white;justify-content: center;align-items: center;"">
+            <div id="logo">
+            </div>
+            <h3 style="color:white;">wanderWise 360</h3>
         </div>
         <div class="nav-right-container">
             <div class="search-wrapper" id="searchWrapper">
@@ -570,7 +594,7 @@
         </div>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="home.html" onclick="closeMenu()">Home</a></li>
+            <li><a href="index.html" onclick="closeMenu()">Home</a></li>
             <select id="ras" onchange="switchPage('ras')">
                 <option selected>Place to go</option>
                 <option value="eachaboutpage/kachin.html">Kachin</option>
@@ -588,17 +612,18 @@
                 <option value="eachaboutpage/tanintharyi.html">Tanintheryi</option>
                 <option value="eachaboutpage/sagaing.html">Sagaing</option>
             </select>
-            <li><a href="service.html" onclick="closeMenu()">Services</a></li>
-            <li> <a href="packages.html" onclick="closeMenu()">Packages</a></li>
-            <li> <a href="booking.html" onclick="closeMenu()">Booking</a></li>
-            <li> <a href="aboutus.html" onclick="closeMenu()">About</a></li>
+            <li><a href="major-page-html/servicenew.html" onclick="closeMenu()">Services</a></li>
+            <li> <a href="major-page-html/packages.html" onclick="closeMenu()">Packages</a></li>
+
+            <li> <a href="major-page-html/aboutus.html" onclick="closeMenu()">About</a></li>
+
         </ul>
     </nav>
     <header>
         <h1>EXPLORE THE WONDERS OF MYANMAR</h1>
         <h3>Find your next adventurewith WanderWise 360</h3>
         <div id="button">
-            <button>Explore Now</button>
+            <a href="#sras"><button>Explore Now</button></a>
         </div>
     </header>
     <section id="portfolio">
@@ -658,147 +683,149 @@
             </div>
         </div>
     </section>
-    <section id="portfolio">
-        <h1>REGIONS & STATES</h1>
-        <p style="color: var(--text-gray);">A collection of my recent projects</p>
+    <div id="sras">
+        <section id="portfolio">
+            <h1>REGIONS & STATES</h1>
+            <p style="color: var(--text-gray);">A collection of my recent projects</p>
 
-        <div class="portfolio-grid">
-            <div class="project-card">
-                <a href="eachaboutpage/yangon.html">
-                    <div class="project-img"><img src="image & logo/yangons.jpg" />
-                    </div>
-                </a>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <a href="eachaboutpage/yangon.html">
+                        <div class="project-img"><img src="image & logo/yangons.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/yangon.html" id="name">
-                    <h3>YANGON</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/mandalay.html">
-                    <div class="project-img"><img src="image & logo/mandalaya.jpg" />
-                    </div>
-                </a>
+                    <a href="eachaboutpage/yangon.html" id="name">
+                        <h3>YANGON</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/mandalay.html">
+                        <div class="project-img"><img src="image & logo/mandalaya.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/mandalay.html" id="name">
-                    <h3>MANDALAY</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/ayeyarwaddy.html">
-                    <div class="project-img"><img src="image & logo/ayeyarwaddy.jpg" />
-                    </div>
-                </a>
-                <a href="eachaboutpage/ayeyarwaddy.html" id="name">
-                    <h3>AYEYARWADDY</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/bago.html">
-                    <div class="project-img"><img src="image & logo/bagos.jpg" />
-                    </div>
-                </a>
-                <a href="eachaboutpage/bago.html" id="name">
-                    <h3>BAGO</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/tanintharyi.html">
-                    <div class="project-img"><img src="image & logo/hotel.jpg" />
-                    </div>
-                </a>
-                <a href="eachaboutpage/tanintharyi.html" id="name">
-                    <h3>TANINTHARYI</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/sagaing.html">
-                    <div class="project-img"><img src="image & logo/sagaing.jpg" />
-                    </div>
-                </a>
+                    <a href="eachaboutpage/mandalay.html" id="name">
+                        <h3>MANDALAY</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/ayeyarwaddy.html">
+                        <div class="project-img"><img src="image & logo/ayeyarwaddy.jpg" />
+                        </div>
+                    </a>
+                    <a href="eachaboutpage/ayeyarwaddy.html" id="name">
+                        <h3>AYEYARWADDY</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/bago.html">
+                        <div class="project-img"><img src="image & logo/bagos.jpg" />
+                        </div>
+                    </a>
+                    <a href="eachaboutpage/bago.html" id="name">
+                        <h3>BAGO</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/tanintharyi.html">
+                        <div class="project-img"><img src="image & logo/hotel.jpg" />
+                        </div>
+                    </a>
+                    <a href="eachaboutpage/tanintharyi.html" id="name">
+                        <h3>TANINTHARYI</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/sagaing.html">
+                        <div class="project-img"><img src="image & logo/sagaing.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/sagaing.html" id="name">
-                    <h3>SAGAING</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/magway.html">
-                    <div class="project-img"><img src="image & logo/magway.jpg" />
-                    </div>
-                </a>
+                    <a href="eachaboutpage/sagaing.html" id="name">
+                        <h3>SAGAING</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/magway.html">
+                        <div class="project-img"><img src="image & logo/magway.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/magway.html" id="name">
-                    <h3>MAGWAY</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/kachin.html">
-                    <div class="project-img"><img src="image & logo/kachin.jpg" />
-                    </div>
-                </a>
+                    <a href="eachaboutpage/magway.html" id="name">
+                        <h3>MAGWAY</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/kachin.html">
+                        <div class="project-img"><img src="image & logo/kachin.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/kachin.html" id="name">
-                    <h3>KACHIN</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/kayar.html">
-                    <div class="project-img"><img src="image & logo/kayars.jpg" />
-                    </div>
-                </a>
+                    <a href="eachaboutpage/kachin.html" id="name">
+                        <h3>KACHIN</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/kayar.html">
+                        <div class="project-img"><img src="image & logo/kayars.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/kayar.html" id="name">
-                    <h3>kAYAR</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/kayin.html">
-                    <div class="project-img"><img src="image & logo/kayins.jpg" />
-                    </div>
-                </a>
-                <a href="eachaboutpage/kayin.html" id="name">
-                    <h3>KAYIN</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/chin.html">
-                    <div class="project-img"><img src="image & logo/chin.jpg" />
-                    </div>
-                </a>
-                <a href="eachaboutpage/chin.html" id="name">
-                    <h3>CHIN</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/mon.html">
-                    <div class="project-img"><img src="image & logo/mon.jpg" />
-                    </div>
-                </a>
-                <a href="eachaboutpage/mon.html" id="name">
-                    <h3>MON</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/rakhine.html">
-                    <div class="project-img"><img src="image & logo/myauk.jpg" />
-                    </div>
-                </a>
+                    <a href="eachaboutpage/kayar.html" id="name">
+                        <h3>kAYAR</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/kayin.html">
+                        <div class="project-img"><img src="image & logo/kayins.jpg" />
+                        </div>
+                    </a>
+                    <a href="eachaboutpage/kayin.html" id="name">
+                        <h3>KAYIN</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/chin.html">
+                        <div class="project-img"><img src="image & logo/chin.jpg" />
+                        </div>
+                    </a>
+                    <a href="eachaboutpage/chin.html" id="name">
+                        <h3>CHIN</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/mon.html">
+                        <div class="project-img"><img src="image & logo/mon.jpg" />
+                        </div>
+                    </a>
+                    <a href="eachaboutpage/mon.html" id="name">
+                        <h3>MON</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/rakhine.html">
+                        <div class="project-img"><img src="image & logo/myauk.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/rakhine.html" id="name">
-                    <h3>RAKHINE</h3>
-                </a>
-            </div>
-            <div class="project-card">
-                <a href="eachaboutpage/shan.html">
-                    <div class="project-img"><img src="image & logo/shans.jpg" />
-                    </div>
-                </a>
+                    <a href="eachaboutpage/rakhine.html" id="name">
+                        <h3>RAKHINE</h3>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="eachaboutpage/shan.html">
+                        <div class="project-img"><img src="image & logo/shans.jpg" />
+                        </div>
+                    </a>
 
-                <a href="eachaboutpage/shan.html" id="name">
-                    <h3>SHAN</h3>
-                </a>
+                    <a href="eachaboutpage/shan.html" id="name">
+                        <h3>SHAN</h3>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <section id="portfolio">
         <h1>PAGODAS</h1>
         <p style="color: var(--text-gray);">A collection of my recent projects</p>
