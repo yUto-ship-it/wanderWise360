@@ -25,7 +25,7 @@
             <h1 class="main-title">Discover Luxury Stays</h1>
             <div class="hotel-grid">
                 <div class="hotel-card"
-                    onclick="openHotel('Mercure Mandalay Hill', Mandalay', 150000, '../image & logo/manlay1.jpg')">
+                    onclick="openHotel('Mercure Mandalay Hill', 'Mandalay', 150000, '../image & logo/manlay1.jpg')">
                     <img src="../image & logo/manlay1.jpg">
                     <div class="card-info">
                         <h3>Mercure Mandalay Hill</h3>
@@ -339,7 +339,7 @@
             if (!name || total === "0 MMK") return alert("Please fill all details correctly.");
 
             const msg = encodeURIComponent(`🏨 *HOTEL BOOKING*\nHotel: ${hotel}\n🙎🏻‍♂️Name: ${name}\n📞Phone: ${phone}\n⏳Duration: ${nights}Nights\n🆔NRC: ${document.getElementById('ras').value}/${document.getElementById('type').value}(${coun})${nrc}\nRoom Type: ${type}\nTotal: ${total}`);
-            if (platform === 'telegram') window.open(`https://t.me/mandalay_bot?text=${msg}`);
+            if (platform === 'telegram') window.open(`https://t.me/yUto487_bot?text=${msg}`);
             else window.open(`viber://pa?chatURI=&text=${msg}`);
         }
     </script>
